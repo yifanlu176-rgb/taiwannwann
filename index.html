@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>太旺旺株式会社 | 旺旺と、豊かに生きる。</title>
+<meta name="description" content="太旺旺株式会社は、中国の健康器具の輸入販売・飲食事業を通じて、皆さまの豊かな暮らしをサポートいたします。大阪を拠点に、食・健康・くらしの全方位でお役に立てる企業を目指しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:    #f7f2ea;
+  --cream2:   #ede5d8;
+  --cream3:   #ddd0bc;
+  --paper:    #faf7f2;
+  --warm:     #c8956c;
+  --warm2:    #a5714a;
+  --warm3:    #7a4f2d;
+  --moss:     #7a8c6e;
+  --moss2:    #5a6e50;
+  --charcoal: #2c2520;
+  --mid:      #6b5c4e;
+  --light:    #9e8c7a;
+  --border:   rgba(122,79,45,0.12);
+  --serif-jp: 'Noto Serif JP', serif;
+  --sans-jp:  'Noto Sans JP', sans-serif;
+  --serif-en: 'Cormorant Garamond', serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--charcoal);
+  font-family: var(--serif-jp);
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ─── LANG SWITCH ─── */
+[data-lang="zh"] { display: none; }
+body.zh [data-lang="ja"] { display: none; }
+body.zh [data-lang="zh"] { display: unset; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: all .3s;
+}
+.nav-logo {
+  display: flex; flex-direction: column;
+  text-decoration: none;
+}
+.nav-logo-main {
+  font-family: var(--serif-jp);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: .12em;
+}
+.nav-logo-sub {
+  font-family: var(--serif-en);
+  font-size: .7rem;
+  color: var(--light);
+  letter-spacing: .25em;
+  font-style: italic;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2.4rem; list-style: none;
+}
+.nav-links a {
+  color: var(--mid);
+  text-decoration: none;
+  font-family: var(--sans-jp);
+  font-size: .82rem;
+  font-weight: 300;
+  letter-spacing: .08em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--warm2); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.lang-toggle {
+  display: flex; border: 1px solid var(--cream3); border-radius: 2px; overflow: hidden;
+}
+.lang-btn {
+  background: transparent; border: none;
+  color: var(--light);
+  padding: .3rem .65rem;
+  cursor: pointer;
+  font-family: var(--sans-jp);
+  font-size: .72rem;
+  letter-spacing: .05em;
+  transition: all .2s;
+}
+.lang-btn.active { background: var(--warm); color: white; }
+.nav-cta {
+  background: var(--warm);
+  color: white;
+  padding: .5rem 1.4rem;
+  font-family: var(--sans-jp);
+  font-size: .8rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: background .25s;
+  border-radius: 1px;
+}
+.nav-cta:hover { background: var(--warm2); }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 6% 4rem 7%;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--serif-en);
+  font-size: .85rem;
+  color: var(--warm);
+  letter-spacing: .3em;
+  font-style: italic;
+  margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp .8s .2s forwards;
+}
+.hero-title {
+  font-family: var(--serif-jp);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  color: var(--charcoal);
+  margin-bottom: 1.4rem;
+  opacity: 0; animation: fadeUp .8s .35s forwards;
+}
+.hero-title strong {
+  font-weight: 600;
+  color: var(--warm2);
+  display: block;
+}
+.hero-title-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: .06em;
+  color: var(--charcoal);
+  margin-bottom: 1.4rem;
+  opacity: 0; animation: fadeUp .8s .35s forwards;
+}
+.hero-title-zh strong { font-weight: 600; color: var(--warm2); display: block; }
+.hero-tagline {
+  font-size: 1rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 2;
+  max-width: 420px;
+  margin-bottom: 2.8rem;
+  opacity: 0; animation: fadeUp .8s .5s forwards;
+}
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .8s .65s forwards;
+}
+.btn-primary {
+  background: var(--warm);
+  color: white;
+  padding: .9rem 2.2rem;
+  font-family: var(--sans-jp);
+  font-size: .88rem;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: background .25s;
+  display: inline-block;
+  border-radius: 1px;
+}
+.btn-primary:hover { background: var(--warm2); }
+.btn-outline {
+  background: transparent;
+  color: var(--mid);
+  padding: .9rem 2.2rem;
+  font-family: var(--sans-jp);
+  font-size: .88rem;
+  letter-spacing: .12em;
+  border: 1px solid var(--cream3);
+  text-decoration: none;
+  transition: all .25s;
+  display: inline-block;
+  border-radius: 1px;
+}
+.btn-outline:hover { border-color: var(--warm); color: var(--warm); }
+.hero-right {
+  position: relative;
+  background: var(--cream2);
+  overflow: hidden;
+}
+.hero-pattern {
+  position: absolute; inset: 0;
+  opacity: .4;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(122,79,45,.06) 48px, rgba(122,79,45,.06) 49px),
+    repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(122,79,45,.06) 48px, rgba(122,79,45,.06) 49px);
+}
+.hero-visual-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  gap: 2rem;
+}
+.hero-circle-deco {
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,108,0.2);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-circle-deco::before {
+  content: '';
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,108,0.3);
+}
+.hero-circle-deco::after {
+  content: '';
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,149,108,0.1);
+}
+.hero-kanji {
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--warm);
+  opacity: .18;
+  line-height: 1;
+  letter-spacing: .05em;
+  font-family: var(--serif-jp);
+}
+.hero-icons {
+  display: flex; gap: 2.5rem;
+}
+.hero-icon-item {
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+}
+.hero-icon-symbol { font-size: 1.8rem; opacity: .5; }
+.hero-icon-label {
+  font-family: var(--sans-jp);
+  font-size: .65rem;
+  color: var(--mid);
+  letter-spacing: .15em;
+  font-weight: 300;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: none; }
+}
+.hero-scroll-hint {
+  position: absolute; bottom: 2rem; left: 7%;
+  display: flex; align-items: center; gap: .8rem;
+  color: var(--light); font-size: .72rem; letter-spacing: .2em;
+  font-family: var(--sans-jp); font-weight: 300;
+  opacity: 0; animation: fadeUp 1s 1s forwards;
+}
+.hero-scroll-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(to right, var(--warm), transparent);
+}
+
+/* ─── MARQUEE ─── */
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: .7rem 0;
+  background: var(--cream);
+}
+.marquee-track {
+  display: flex; gap: 0; width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-item {
+  font-family: var(--serif-en);
+  font-size: .78rem;
+  letter-spacing: .2em;
+  color: var(--light);
+  white-space: nowrap;
+  padding: 0 2rem;
+  font-style: italic;
+}
+.marquee-sep { color: var(--warm); margin: 0; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── SECTION COMMON ─── */
+section { position: relative; }
+.section-inner { max-width: 1140px; margin: 0 auto; padding: 6rem 5%; }
+.section-label {
+  font-family: var(--serif-en);
+  font-size: .75rem;
+  letter-spacing: .3em;
+  color: var(--warm);
+  font-style: italic;
+  margin-bottom: .8rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: .1em;
+  line-height: 1.4;
+  color: var(--charcoal);
+  margin-bottom: .6rem;
+}
+.section-title strong { font-weight: 600; }
+.section-divider {
+  width: 36px; height: 2px;
+  background: var(--warm);
+  margin: 1.2rem 0 1.4rem;
+  opacity: .6;
+}
+.section-desc {
+  color: var(--mid);
+  font-size: .9rem;
+  line-height: 2.1;
+  font-weight: 300;
+  max-width: 480px;
+}
+
+/* ─── PHILOSOPHY ─── */
+#philosophy { background: var(--charcoal); }
+.philosophy-inner {
+  max-width: 900px; margin: 0 auto;
+  padding: 7rem 5%;
+  text-align: center;
+}
+.philosophy-en {
+  font-family: var(--serif-en);
+  font-size: .8rem;
+  letter-spacing: .4em;
+  color: var(--warm);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.philosophy-text {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: .12em;
+  color: var(--cream);
+}
+.philosophy-text em {
+  font-style: normal;
+  color: var(--warm);
+  font-weight: 500;
+}
+.philosophy-sub {
+  margin-top: 2rem;
+  font-size: .88rem;
+  color: rgba(247,242,234,0.45);
+  font-weight: 300;
+  letter-spacing: .1em;
+  font-family: var(--sans-jp);
+  line-height: 2;
+}
+
+/* ─── BUSINESS ─── */
+#business { background: var(--paper); }
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 4rem;
+  background: var(--cream3);
+  border: 2px solid var(--cream3);
+}
+.biz-card {
+  background: var(--paper);
+  padding: 3rem 2.4rem 2.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s;
+  cursor: default;
+}
+.biz-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--warm);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s;
+}
+.biz-card:hover { background: var(--cream); }
+.biz-card:hover::after { transform: scaleX(1); }
+.biz-num {
+  font-family: var(--serif-en);
+  font-size: .7rem;
+  color: var(--cream3);
+  letter-spacing: .2em;
+  margin-bottom: 1.8rem;
+  font-style: italic;
+}
+.biz-icon { font-size: 2.2rem; margin-bottom: 1.2rem; opacity: .7; }
+.biz-name-ja {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--charcoal);
+  margin-bottom: .3rem;
+}
+.biz-name-en {
+  font-family: var(--serif-en);
+  font-size: .72rem;
+  color: var(--warm);
+  letter-spacing: .2em;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+}
+.biz-desc {
+  font-size: .86rem;
+  color: var(--mid);
+  line-height: 2;
+  font-weight: 300;
+}
+.biz-tag {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: var(--sans-jp);
+  font-size: .68rem;
+  color: var(--warm);
+  border: 1px solid rgba(200,149,108,0.3);
+  padding: .25rem .8rem;
+  letter-spacing: .1em;
+  border-radius: 20px;
+}
+.biz-tag.coming {
+  color: var(--moss2);
+  border-color: rgba(122,140,110,0.3);
+}
+
+/* ─── PRODUCTS ─── */
+#products { background: var(--cream); }
+.products-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.product-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow .3s, transform .3s;
+}
+.product-card:hover {
+  box-shadow: 0 8px 32px rgba(122,79,45,0.08);
+  transform: translateY(-2px);
+}
+.product-img {
+  aspect-ratio: 4/3;
+  background: var(--cream2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  opacity: .35;
+  position: relative; overflow: hidden;
+}
+.product-img-pattern {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 8px,
+    rgba(200,149,108,0.04) 8px, rgba(200,149,108,0.04) 9px
+  );
+}
+.product-body { padding: 1.2rem 1.4rem 1.4rem; }
+.product-cat {
+  font-family: var(--sans-jp);
+  font-size: .65rem;
+  color: var(--moss2);
+  letter-spacing: .15em;
+  margin-bottom: .5rem;
+  font-weight: 400;
+}
+.product-name {
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--charcoal);
+  margin-bottom: .4rem;
+}
+.product-desc {
+  font-size: .8rem;
+  color: var(--mid);
+  line-height: 1.9;
+  font-weight: 300;
+}
+.product-channels {
+  display: flex; gap: .5rem; margin-top: 1rem; flex-wrap: wrap;
+}
+.channel-tag {
+  font-family: var(--sans-jp);
+  font-size: .62rem;
+  color: var(--light);
+  border: 1px solid var(--border);
+  padding: .18rem .6rem;
+  letter-spacing: .05em;
+  border-radius: 2px;
+}
+
+/* ─── RESTAURANT ─── */
+#restaurant { background: var(--paper); }
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 4rem;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.restaurant-visual {
+  background: var(--cream2);
+  position: relative;
+  min-height: 420px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.restaurant-pattern {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(122,79,45,.05) 32px, rgba(122,79,45,.05) 33px),
+    repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(122,79,45,.05) 32px, rgba(122,79,45,.05) 33px);
+}
+.restaurant-coming-badge {
+  position: relative; z-index: 2;
+  text-align: center;
+}
+.restaurant-coming-badge .big-ja {
+  font-size: 5rem;
+  opacity: .12;
+  font-weight: 700;
+  color: var(--warm3);
+  line-height: 1;
+  letter-spacing: .1em;
+  font-family: var(--serif-jp);
+}
+.restaurant-coming-badge .badge-text {
+  font-family: var(--serif-en);
+  font-size: .8rem;
+  letter-spacing: .3em;
+  color: var(--warm);
+  font-style: italic;
+  margin-top: 1rem;
+}
+.restaurant-info {
+  padding: 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.restaurant-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  margin-bottom: .6rem;
+  color: var(--charcoal);
+}
+.restaurant-info p {
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 2.1;
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
+.coming-soon-box {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--moss);
+  padding: 1.2rem 1.4rem;
+  margin-top: 1rem;
+}
+.coming-soon-box .label {
+  font-family: var(--serif-en);
+  font-size: .7rem;
+  color: var(--moss2);
+  letter-spacing: .2em;
+  font-style: italic;
+  margin-bottom: .4rem;
+}
+.coming-soon-box p {
+  font-size: .84rem;
+  color: var(--mid);
+  margin: 0;
+  line-height: 1.9;
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--cream); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+.about-table tr {
+  border-bottom: 1px solid var(--border);
+}
+.about-table th {
+  text-align: left;
+  padding: .9rem 0;
+  font-family: var(--sans-jp);
+  font-size: .78rem;
+  color: var(--light);
+  font-weight: 400;
+  letter-spacing: .08em;
+  width: 38%;
+  vertical-align: top;
+}
+.about-table td {
+  padding: .9rem 0;
+  font-size: .88rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.9;
+}
+.about-philosophy-block {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 2.4rem;
+  position: sticky;
+  top: 7rem;
+}
+.philosophy-pull {
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: .1em;
+  color: var(--charcoal);
+  margin-bottom: 1.4rem;
+}
+.philosophy-pull em {
+  font-style: normal;
+  color: var(--warm);
+}
+.philosophy-pull-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: .08em;
+  color: var(--charcoal);
+  margin-bottom: 1.4rem;
+}
+.philosophy-pull-zh em { font-style: normal; color: var(--warm); }
+.philosophy-body {
+  font-size: .84rem;
+  color: var(--mid);
+  line-height: 2.1;
+  font-weight: 300;
+}
+.mission-items {
+  list-style: none;
+  margin-top: 1.6rem;
+}
+.mission-items li {
+  display: flex; gap: .7rem; align-items: flex-start;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .84rem;
+  color: var(--mid);
+  font-weight: 300;
+}
+.mission-items li::before {
+  content: '✦';
+  color: var(--warm);
+  font-size: .55rem;
+  margin-top: .5rem;
+  flex-shrink: 0;
+}
+
+/* ─── SALES CHANNELS ─── */
+#channels { background: var(--paper); }
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.channel-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 2rem 1.8rem;
+  text-align: center;
+  transition: box-shadow .3s;
+}
+.channel-card:hover { box-shadow: 0 4px 20px rgba(122,79,45,0.07); }
+.channel-icon { font-size: 2rem; margin-bottom: 1rem; opacity: .6; }
+.channel-name {
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  margin-bottom: .4rem;
+  color: var(--charcoal);
+}
+.channel-desc {
+  font-size: .8rem;
+  color: var(--mid);
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+/* ─── CONTACT ─── */
+#contact { background: var(--charcoal); }
+.contact-inner {
+  max-width: 800px; margin: 0 auto;
+  padding: 7rem 5%;
+  text-align: center;
+}
+.contact-inner .section-label { color: var(--warm); }
+.contact-inner .section-title { color: var(--cream); }
+.contact-inner .section-desc { color: rgba(247,242,234,0.5); margin: 0 auto; text-align: center; max-width: 460px; }
+.contact-form {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(247,242,234,0.1);
+  padding: 2.8rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block;
+  font-family: var(--sans-jp);
+  font-size: .72rem;
+  color: rgba(247,242,234,0.4);
+  letter-spacing: .1em;
+  margin-bottom: .4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(247,242,234,0.12);
+  color: var(--cream);
+  padding: .85rem 1rem;
+  font-family: var(--sans-jp);
+  font-size: .85rem;
+  outline: none;
+  transition: border-color .2s;
+  border-radius: 1px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(200,149,108,0.4); }
+.form-group textarea { min-height: 110px; resize: vertical; }
+.form-group select option { background: var(--charcoal); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit {
+  width: 100%;
+  background: var(--warm);
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-family: var(--sans-jp);
+  font-size: .88rem;
+  font-weight: 400;
+  letter-spacing: .15em;
+  cursor: pointer;
+  transition: background .25s;
+  margin-top: .4rem;
+  border-radius: 1px;
+}
+.form-submit:hover { background: var(--warm2); }
+.contact-channels {
+  display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;
+}
+.contact-channel-btn {
+  flex: 1; max-width: 180px;
+  padding: .8rem 1rem;
+  border: 1px solid rgba(247,242,234,0.12);
+  background: transparent;
+  color: rgba(247,242,234,0.5);
+  font-family: var(--sans-jp);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  cursor: pointer;
+  transition: all .2s;
+  border-radius: 1px;
+}
+.contact-channel-btn:hover { border-color: var(--warm); color: var(--warm); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #1e1814;
+  border-top: 1px solid rgba(247,242,234,0.06);
+  padding: 3.5rem 5% 2rem;
+}
+.footer-grid {
+  max-width: 1140px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.footer-brand .nav-logo-main { color: var(--cream); font-size: 1rem; }
+.footer-brand .nav-logo-sub { color: rgba(247,242,234,0.3); }
+.footer-brand p {
+  font-size: .8rem;
+  color: rgba(247,242,234,0.3);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-top: 1rem;
+  max-width: 240px;
+}
+.footer-col h4 {
+  font-family: var(--sans-jp);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  color: var(--warm);
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: .5rem; }
+.footer-col ul a {
+  font-size: .8rem;
+  color: rgba(247,242,234,0.3);
+  text-decoration: none;
+  font-weight: 300;
+  transition: color .2s;
+}
+.footer-col ul a:hover { color: var(--warm); }
+.footer-bottom {
+  max-width: 1140px; margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(247,242,234,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-bottom p {
+  font-size: .72rem;
+  color: rgba(247,242,234,0.2);
+  font-family: var(--sans-jp);
+  font-weight: 300;
+}
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: .12s; }
+.reveal-delay-2 { transition-delay: .24s; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 960px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .business-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-philosophy-block { position: static; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .channels-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-left { padding: 7rem 5% 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-main">太旺旺株式会社</span>
+    <span class="nav-logo-sub">Taiwannwann Co., Ltd.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#business">事業内容</a></li>
+    <li><a href="#products">商品</a></li>
+    <li><a href="#restaurant">飲食事業</a></li>
+    <li><a href="#about">会社概要</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <a class="nav-cta" href="#contact" data-lang="ja">お問い合わせ</a>
+    <a class="nav-cta" href="#contact" data-lang="zh">聯絡我們</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Food · Health · Well-being</p>
+    <h1 class="hero-title" data-lang="ja">
+      旺旺と、<strong>豊かに生きる。</strong>
+      <span style="display:block;font-size:.48em;font-weight:300;color:var(--mid);letter-spacing:.06em;margin-top:.8rem;line-height:2;">
+        食べること、癒されること、健やかでいること。<br>
+        暮らしのあらゆる場面で、そっと寄り添う。
+      </span>
+    </h1>
+    <h1 class="hero-title-zh" data-lang="zh">
+      旺旺相伴，<strong>豐盛生活。</strong>
+      <span style="display:block;font-size:.52em;font-weight:300;color:var(--mid);letter-spacing:.06em;margin-top:.8rem;line-height:2;">
+        飲食、健康、康養——<br>生活每個面向，我們都在。
+      </span>
+    </h1>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#business" data-lang="ja">事業内容を見る</a>
+      <a class="btn-primary" href="#business" data-lang="zh">了解我們的業務</a>
+      <a class="btn-outline" href="#contact" data-lang="ja">お問い合わせ</a>
+      <a class="btn-outline" href="#contact" data-lang="zh">聯絡我們</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-visual-inner">
+      <div class="hero-circle-deco">
+        <div class="hero-kanji">旺</div>
+      </div>
+      <div class="hero-icons">
+        <div class="hero-icon-item">
+          <span class="hero-icon-symbol">🍜</span>
+          <span class="hero-icon-label">飲食</span>
+        </div>
+        <div class="hero-icon-item">
+          <span class="hero-icon-symbol">🌿</span>
+          <span class="hero-icon-label">健康</span>
+        </div>
+        <div class="hero-icon-item">
+          <span class="hero-icon-symbol">☯</span>
+          <span class="hero-icon-label">康養</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="hero-scroll-line"></div>
+    <span data-lang="ja">スクロール</span>
+    <span data-lang="zh">向下滾動</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-inner reveal">
+    <p class="philosophy-en">Our Philosophy</p>
+    <p class="philosophy-text" data-lang="ja">
+      人は、<em>よく食べ</em>、よく癒され、<br>
+      よく動いてこそ、<em>よく生きられる</em>。<br>
+      <span style="font-size:.6em;opacity:.5;display:block;margin-top:1.2rem;letter-spacing:.08em;">
+        太旺旺株式会社は、その全てに応える企業でありたいと思います。
+      </span>
+    </p>
+    <p class="philosophy-text" data-lang="zh" style="font-family:'Noto Serif SC',serif;">
+      唯有<em>好好飲食</em>、好好調養、<br>
+      好好生活，才能<em>真正旺盛</em>。<br>
+      <span style="font-size:.6em;opacity:.5;display:block;margin-top:1.2rem;letter-spacing:.08em;font-family:'Noto Sans JP',sans-serif;">
+        太旺旺株式会社，願成為陪伴您實現這一切的夥伴。
+      </span>
+    </p>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section id="business">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Business</p>
+      <h2 class="section-title" data-lang="ja">三つの事業で、<strong>くらしを支える</strong></h2>
+      <h2 class="section-title" data-lang="zh">三大業務，<strong>全方位守護您的生活</strong></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc" data-lang="ja">中国と日本をつなぐ健康器具の輸入販売、そして飲食事業の展開により、皆さまの食・健康・くらしを丁寧にサポートいたします。</p>
+      <p class="section-desc" data-lang="zh">透過連結中日兩國的健康器具進口銷售，以及餐飲事業的發展，全方位支援您在飲食、健康、生活各層面的需求。</p>
+    </div>
+    <div class="business-grid reveal reveal-delay-1">
+      <div class="biz-card">
+        <div class="biz-num">01</div>
+        <div class="biz-icon">🌿</div>
+        <div class="biz-name-ja" data-lang="ja">健康器具の輸入販売</div>
+        <div class="biz-name-ja" data-lang="zh">健康器具進口銷售</div>
+        <div class="biz-name-en">Health Products Import</div>
+        <p class="biz-desc" data-lang="ja">中国の伝統的な健康知恵を現代に活かした家庭用健康器具を厳選し、日本市場へ提供。ビーズまくら、経絡治療儀、遠赤外線マッサージ機など、日常の健康をサポートする商品を取り揃えています。</p>
+        <p class="biz-desc" data-lang="zh">精選融合中國傳統健康智慧的家用健康器具，引進日本市場。珠枕、經絡治療儀、遠紅外線按摩機等，支援日常健康管理。</p>
+        <span class="biz-tag">販売中</span>
+      </div>
+      <div class="biz-card">
+        <div class="biz-num">02</div>
+        <div class="biz-icon">🛒</div>
+        <div class="biz-name-ja" data-lang="ja">オンライン販売</div>
+        <div class="biz-name-ja" data-lang="zh">線上銷售</div>
+        <div class="biz-name-en">Online Commerce</div>
+        <p class="biz-desc" data-lang="ja">Yahoo!ショッピング・楽天市場などの大手プラットフォームに加え、Instagram・Facebook・LINEなどのSNSを活用した多チャンネル販売で、より多くのお客様へ安心してお届けします。</p>
+        <p class="biz-desc" data-lang="zh">除Yahoo!購物、樂天市場等大型平台外，同時運用Instagram、Facebook、LINE等社群媒體，透過多渠道銷售，讓更多顧客便捷安心地購得商品。</p>
+        <span class="biz-tag">稼働中</span>
+      </div>
+      <div class="biz-card">
+        <div class="biz-num">03</div>
+        <div class="biz-icon">🍜</div>
+        <div class="biz-name-ja" data-lang="ja">飲食事業</div>
+        <div class="biz-name-ja" data-lang="zh">餐飲事業</div>
+        <div class="biz-name-en">Food & Dining</div>
+        <p class="biz-desc" data-lang="ja">「食」は豊かな暮らしの根本。飲食店の経営・運営事業を通じて、本物の美味しさと温かいおもてなしを大阪の地から発信してまいります。</p>
+        <p class="biz-desc" data-lang="zh">「飲食」是豐盛生活的根本。透過餐廳經營事業，從大阪出發，傳遞真正的美味與溫暖的待客之道。</p>
+        <span class="biz-tag coming">準備中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-inner">
+    <div class="products-header reveal">
+      <div>
+        <p class="section-label">Products</p>
+        <h2 class="section-title" data-lang="ja">取扱<strong>商品</strong></h2>
+        <h2 class="section-title" data-lang="zh">主要<strong>商品</strong></h2>
+        <div class="section-divider"></div>
+        <p class="section-desc" data-lang="ja">中国の伝統的な健康文化から生まれた商品を、日本の皆さまへ。</p>
+        <p class="section-desc" data-lang="zh">源自中國傳統健康文化的精選商品，誠摯呈獻給日本各位顧客。</p>
+      </div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>🟤</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">寝具・リラクゼーション</div>
+          <div class="product-cat" data-lang="zh">寢具・放鬆</div>
+          <div class="product-name" data-lang="ja">ビーズまくら</div>
+          <div class="product-name" data-lang="zh">珠枕</div>
+          <p class="product-desc" data-lang="ja">天然素材のビーズを使用した伝統的な健康まくら。首・肩のコリをやさしくほぐし、質の高い睡眠をサポートします。</p>
+          <p class="product-desc" data-lang="zh">採用天然材質珠粒製成的傳統健康枕。溫和舒緩頸肩僵硬，支援高品質睡眠。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">楽天</span>
+            <span class="channel-tag">SNS</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>🌿</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">伝統療法器具</div>
+          <div class="product-cat" data-lang="zh">傳統療法器具</div>
+          <div class="product-name" data-lang="ja">ヨモギハンマー</div>
+          <div class="product-name" data-lang="zh">艾草錘</div>
+          <p class="product-desc" data-lang="ja">ヨモギのエキスを配合した伝統的なツボ刺激ハンマー。経絡に沿ったケアで、体のめぐりを整えます。</p>
+          <p class="product-desc" data-lang="zh">融入艾草精華的傳統穴位刺激錘，沿經絡調理，促進全身氣血循環。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">楽天</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>⚡</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">電気治療器</div>
+          <div class="product-cat" data-lang="zh">電療器具</div>
+          <div class="product-name" data-lang="ja">経絡治療儀</div>
+          <div class="product-name" data-lang="zh">經絡治療儀</div>
+          <p class="product-desc" data-lang="ja">中医学の経絡理論に基づいた家庭用電気治療器。微弱電流でツボを刺激し、慢性的なコリや疲労感の緩和をサポート。</p>
+          <p class="product-desc" data-lang="zh">依據中醫經絡理論設計的家用電療儀。以微電流刺激穴位，緩解慢性肌肉酸痛與疲勞感。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">楽天</span>
+            <span class="channel-tag">SNS</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>🔴</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">温熱療法</div>
+          <div class="product-cat" data-lang="zh">溫熱療法</div>
+          <div class="product-name" data-lang="ja">遠赤外線首マッサージ機</div>
+          <div class="product-name" data-lang="zh">遠紅外線頸部按摩機</div>
+          <p class="product-desc" data-lang="ja">遠赤外線温熱と振動マッサージを組み合わせた首専用ケア器具。デスクワークや長時間のスマホ使用による首のこわばりをほぐします。</p>
+          <p class="product-desc" data-lang="zh">結合遠紅外線溫熱與振動按摩的頸部專用護理器具，舒緩久坐辦公或長時間使用手機造成的頸部僵硬。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">楽天</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>🤎</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">フィットネス</div>
+          <div class="product-cat" data-lang="zh">運動健身</div>
+          <div class="product-name" data-lang="ja">牛革縄跳び</div>
+          <div class="product-name" data-lang="zh">牛皮跳繩</div>
+          <p class="product-desc" data-lang="ja">本革を使用した高品質な縄跳び。耐久性と握り心地にこだわり、日常の運動習慣をサポートします。</p>
+          <p class="product-desc" data-lang="zh">採用真皮製成的高品質跳繩。注重耐用性與握感舒適度，助您養成日常運動好習慣。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">SNS</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img">
+          <div class="product-img-pattern"></div>
+          <span>🛏</span>
+        </div>
+        <div class="product-body">
+          <div class="product-cat" data-lang="ja">リラクゼーション</div>
+          <div class="product-cat" data-lang="zh">放鬆療癒</div>
+          <div class="product-name" data-lang="ja">肘まくら</div>
+          <div class="product-name" data-lang="zh">手肘枕</div>
+          <p class="product-desc" data-lang="ja">腕・肘専用のサポートクッション。読書やスマホ利用時の肘への負担を軽減し、快適な姿勢を保ちます。</p>
+          <p class="product-desc" data-lang="zh">手臂、手肘專用支撐墊枕。減輕閱讀或使用手機時手肘的負擔，保持舒適姿勢。</p>
+          <div class="product-channels">
+            <span class="channel-tag">Yahoo!</span>
+            <span class="channel-tag">楽天</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANT -->
+<section id="restaurant">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Food & Dining</p>
+      <h2 class="section-title" data-lang="ja">飲食事業、<strong>まもなく始動。</strong></h2>
+      <h2 class="section-title" data-lang="zh">餐飲事業，<strong>即將呈現。</strong></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="restaurant-grid reveal reveal-delay-1">
+      <div class="restaurant-visual">
+        <div class="restaurant-pattern"></div>
+        <div class="restaurant-coming-badge">
+          <div class="big-ja">食</div>
+          <div class="badge-text">Coming Soon</div>
+        </div>
+      </div>
+      <div class="restaurant-info">
+        <h3 data-lang="ja">「食べる喜び」を、<br>大阪から。</h3>
+        <h3 data-lang="zh">「飲食之樂」，<br>從大阪出發。</h3>
+        <p data-lang="ja">太旺旺株式会社は、健康器具の輸入販売事業に続き、飲食事業への参入を進めています。食の豊かさは、人が心身ともに満たされるための基本。本物の美味しさと温かいおもてなしで、訪れる方の日常に特別な一瞬を届けることを目指します。</p>
+        <p data-lang="zh">太旺旺株式会社在健康器具進口銷售事業基礎上，正積極推進餐飲事業的拓展。飲食的豐盛，是人心身兼得的根本所在。我們以真實的美味與溫暖的待客之心，為每位到來的客人送上生活中的美好時刻。</p>
+        <div class="coming-soon-box">
+          <div class="label">Coming Soon</div>
+          <p data-lang="ja">店舗詳細・開業情報は近日中に公開予定です。続報をお待ちください。</p>
+          <p data-lang="zh">店鋪詳情及開業資訊即將公開，敬請期待。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section id="channels">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <p class="section-label">Sales Channels</p>
+      <h2 class="section-title" data-lang="ja">どこでも、<strong>お求めいただけます</strong></h2>
+      <h2 class="section-title" data-lang="zh">多渠道，<strong>隨時購買</strong></h2>
+      <div class="section-divider" style="margin:1.2rem auto 1.4rem;"></div>
+    </div>
+    <div class="channels-grid">
+      <div class="channel-card reveal">
+        <div class="channel-icon">🛍</div>
+        <div class="channel-name" data-lang="ja">Yahoo!ショッピング</div>
+        <div class="channel-name" data-lang="zh">Yahoo!購物</div>
+        <p class="channel-desc" data-lang="ja">LINEヤフー株式会社が運営する日本最大級のショッピングモールで商品をご購入いただけます。</p>
+        <p class="channel-desc" data-lang="zh">在日本最大級購物平台之一Yahoo!購物上輕鬆選購我們的商品。</p>
+      </div>
+      <div class="channel-card reveal reveal-delay-1">
+        <div class="channel-icon">🏪</div>
+        <div class="channel-name" data-lang="ja">楽天市場</div>
+        <div class="channel-name" data-lang="zh">樂天市場</div>
+        <p class="channel-desc" data-lang="ja">楽天グループ株式会社が運営する楽天市場でもお求めいただけます。ポイントも貯まります。</p>
+        <p class="channel-desc" data-lang="zh">同步於樂天市場上架銷售，購物同時享有樂天點數回饋。</p>
+      </div>
+      <div class="channel-card reveal reveal-delay-2">
+        <div class="channel-icon">📱</div>
+        <div class="channel-name" data-lang="ja">SNS・直接販売</div>
+        <div class="channel-name" data-lang="zh">社群媒體・直販</div>
+        <p class="channel-desc" data-lang="ja">Instagram・Facebook・LINEを通じた直接販売も行っています。商品の最新情報や使い方のご案内もSNSで発信中。</p>
+        <p class="channel-desc" data-lang="zh">透過Instagram、Facebook、LINE進行直接銷售，同步分享商品最新資訊與使用方法。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-label">Company</p>
+        <h2 class="section-title" data-lang="ja"><strong>会社概要</strong></h2>
+        <h2 class="section-title" data-lang="zh"><strong>公司概要</strong></h2>
+        <div class="section-divider"></div>
+        <table class="about-table">
+          <tr>
+            <th data-lang="ja">会社名</th>
+            <th data-lang="zh">公司名稱</th>
+            <td>太旺旺株式会社</td>
+          </tr>
+          <tr>
+            <th data-lang="ja">本店所在地</th>
+            <th data-lang="zh">本店地址</th>
+            <td data-lang="ja">大阪府大阪市内（設置予定）</td>
+            <td data-lang="zh">大阪府大阪市（設置預定）</td>
+          </tr>
+          <tr>
+            <th data-lang="ja">資本金</th>
+            <th data-lang="zh">資本金</th>
+            <td>500万円</td>
+          </tr>
+          <tr>
+            <th data-lang="ja">代表取締役</th>
+            <th data-lang="zh">代表取締役</th>
+            <td>楊 杰敏</td>
+          </tr>
+          <tr>
+            <th data-lang="ja">事業内容</th>
+            <th data-lang="zh">事業內容</th>
+            <td data-lang="ja">中国からの健康器具輸入販売、飲食事業</td>
+            <td data-lang="zh">中國健康器具進口銷售、餐飲事業</td>
+          </tr>
+          <tr>
+            <th data-lang="ja">販売チャンネル</th>
+            <th data-lang="zh">銷售渠道</th>
+            <td data-lang="ja">Yahoo!ショッピング・楽天市場・各種SNS</td>
+            <td data-lang="zh">Yahoo!購物・樂天市場・各大社群平台</td>
+          </tr>
+        </table>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="about-philosophy-block">
+          <p class="philosophy-pull" data-lang="ja">
+            人の<em>よく生きる</em>を、<br>全力でサポートする。
+          </p>
+          <p class="philosophy-pull-zh" data-lang="zh">
+            全力支援每個人<em>活得更好</em>。
+          </p>
+          <p class="philosophy-body" data-lang="ja">
+            太旺旺株式会社は、「旺旺と、豊かに生きる」を企業理念に掲げ、食・健康・くらしの全方位で皆さまをサポートします。中国の伝統的な健康知恵を日本に届けることから始まり、飲食事業の展開を通じて、より豊かな生活の実現に貢献してまいります。
+          </p>
+          <p class="philosophy-body" data-lang="zh">
+            太旺旺株式会社以「旺旺相伴，豐盛生活」為企業理念，在飲食、健康、康養各層面全力支援每一位客戶。從將中國傳統健康智慧引進日本開始，進而透過餐飲事業的發展，為更豐盛的生活願景貢獻力量。
+          </p>
+          <ul class="mission-items">
+            <li data-lang="ja">中日両国をつなぐ健康の架け橋</li>
+            <li data-lang="ja">伝統知恵と現代ライフの融合</li>
+            <li data-lang="ja">食・健康・くらしの総合サポート</li>
+            <li data-lang="ja">大阪から日本全国へ</li>
+            <li data-lang="zh">連結中日兩國的健康橋樑</li>
+            <li data-lang="zh">傳統智慧與現代生活的融合</li>
+            <li data-lang="zh">飲食、健康、生活的全方位支援</li>
+            <li data-lang="zh">從大阪出發，服務全日本</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title" data-lang="ja">お問い合わせ</h2>
+    <h2 class="section-title" data-lang="zh">聯絡我們</h2>
+    <div class="section-divider" style="margin:1.2rem auto 1.4rem;"></div>
+    <p class="section-desc" data-lang="ja">商品に関するご質問、ご注文、飲食事業のご相談など、お気軽にご連絡ください。</p>
+    <p class="section-desc" data-lang="zh">商品諮詢、訂購事宜、餐飲事業合作等，歡迎隨時與我們聯繫。</p>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="ja">お名前 *</label>
+          <label data-lang="zh">姓名 *</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label data-lang="ja">メールアドレス *</label>
+          <label data-lang="zh">電子郵件 *</label>
+          <input type="email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-lang="ja">お問い合わせ種別</label>
+        <label data-lang="zh">諮詢類別</label>
+        <select id="inquiry-type">
+          <option data-lang="ja">商品について</option>
+          <option data-lang="ja">ご注文・配送について</option>
+          <option data-lang="ja">飲食事業について</option>
+          <option data-lang="ja">その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-lang="ja">お問い合わせ内容</label>
+        <label data-lang="zh">諮詢內容</label>
+        <textarea data-lang="ja" placeholder="ご自由にお書きください"></textarea>
+        <textarea data-lang="zh" placeholder="請描述您的需求或問題"></textarea>
+      </div>
+      <button type="button" class="form-submit" onclick="submitForm(this)" data-lang="ja">送信する</button>
+      <button type="button" class="form-submit" onclick="submitForm(this)" data-lang="zh">送出</button>
+      <p id="form-msg" style="display:none;text-align:center;color:var(--warm);font-size:.84rem;margin-top:1rem;font-family:var(--sans-jp);" data-lang="ja">✦ お問い合わせを受け付けました。24時間以内にご返信いたします。</p>
+      <p id="form-msg-zh" style="display:none;text-align:center;color:var(--warm);font-size:.84rem;margin-top:1rem;font-family:var(--sans-jp);" data-lang="zh">✦ 感謝您的聯繫，我們將在24小時內回覆您。</p>
+    </div>
+    <div class="contact-channels">
+      <button class="contact-channel-btn" onclick="alert('LINE: @taiwannwann')">LINE</button>
+      <button class="contact-channel-btn" onclick="alert('WeChat: taiwannwann')">WeChat</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">
+        <span class="nav-logo-main">太旺旺株式会社</span>
+        <span class="nav-logo-sub">Taiwannwann Co., Ltd.</span>
+      </a>
+      <p data-lang="ja">旺旺と、豊かに生きる。食・健康・くらしのすべてに寄り添う企業として、大阪から日本全国へ。</p>
+      <p data-lang="zh">旺旺相伴，豐盛生活。作為守護飲食、健康、生活各層面的企業，從大阪出發，服務全日本。</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-lang="ja">事業内容</h4>
+      <h4 data-lang="zh">業務內容</h4>
+      <ul>
+        <li><a href="#business" data-lang="ja">健康器具輸入販売</a><a href="#business" data-lang="zh">健康器具進口銷售</a></li>
+        <li><a href="#channels" data-lang="ja">オンライン販売</a><a href="#channels" data-lang="zh">線上銷售</a></li>
+        <li><a href="#restaurant" data-lang="ja">飲食事業</a><a href="#restaurant" data-lang="zh">餐飲事業</a></li>
+        <li><a href="#products" data-lang="ja">商品一覧</a><a href="#products" data-lang="zh">商品列表</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#about" data-lang="ja">会社概要</a><a href="#about" data-lang="zh">公司概要</a></li>
+        <li><a href="#contact" data-lang="ja">お問い合わせ</a><a href="#contact" data-lang="zh">聯絡我們</a></li>
+        <li><a href="#">Yahoo!ショッピング</a></li>
+        <li><a href="#">楽天市場</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 太旺旺株式会社 Taiwannwann Co., Ltd. All rights reserved.</p>
+    <p data-lang="ja">大阪府 · 健康器具輸入販売 · 飲食事業</p>
+    <p data-lang="zh">大阪府 · 健康器具進口銷售 · 餐飲事業</p>
+  </div>
+</footer>
+
+<script>
+// ─── MARQUEE ───
+const items = [
+  'Health & Well-being','食・健康・くらし','飲食 · 健康 · 康養',
+  'Import from China','大阪発・日本全国へ','Yahoo!ショッピング',
+  '楽天市場','旺旺と、豊かに生きる','Coming Soon — Food & Dining'
+];
+const track = document.getElementById('marqueeTrack');
+[...items,...items].forEach(t => {
+  const s = document.createElement('span');
+  s.className = 'marquee-item';
+  s.innerHTML = `<span class="marquee-sep">✦</span> ${t} `;
+  track.appendChild(s);
+});
+
+// ─── LANG ───
+let currentLang = 'ja';
+function setLang(lang) {
+  currentLang = lang;
+  document.body.classList.toggle('zh', lang === 'zh');
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.includes(lang === 'ja' ? '日本語' : '中文'));
+  });
+  const sel = document.getElementById('inquiry-type');
+  sel.innerHTML = '';
+  const opts = lang === 'ja'
+    ? ['商品について','ご注文・配送について','飲食事業について','その他']
+    : ['商品諮詢','訂購・配送事宜','餐飲事業合作','其他'];
+  opts.forEach(o => {
+    const opt = document.createElement('option');
+    opt.textContent = o; sel.appendChild(opt);
+  });
+}
+
+// ─── REVEAL ───
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+// ─── FORM ───
+function submitForm(btn) {
+  document.getElementById('form-msg').style.display = 'block';
+  document.getElementById('form-msg-zh').style.display = 'block';
+  btn.textContent = currentLang === 'ja' ? '送信完了 ✦' : '已送出 ✦';
+  btn.style.background = 'var(--moss2)';
+}
+
+// ─── NAV ───
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 40 ? '0 2px 20px rgba(44,37,32,0.08)' : 'none';
+});
+</script>
+</body>
+</html>
