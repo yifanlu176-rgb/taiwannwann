@@ -391,6 +391,8 @@ section { position: relative; }
   overflow: hidden;
   transition: background .3s;
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 .biz-card::after {
   content: '';
@@ -411,13 +413,14 @@ section { position: relative; }
   margin-bottom: 1.8rem;
   font-style: italic;
 }
-.biz-icon { font-size: 2.2rem; margin-bottom: 1.2rem; opacity: .7; }
+.biz-icon { font-size: 6.6rem; margin-bottom: 1.2rem; opacity: .7; text-align: center; }
 .biz-name-ja {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: .08em;
   color: var(--charcoal);
   margin-bottom: .3rem;
+  text-align: center;
 }
 .biz-name-en {
   font-family: var(--serif-en);
@@ -426,6 +429,7 @@ section { position: relative; }
   letter-spacing: .2em;
   font-style: italic;
   margin-bottom: 1.2rem;
+  text-align: center;
 }
 .biz-desc {
   font-size: .86rem;
@@ -435,7 +439,8 @@ section { position: relative; }
 }
 .biz-tag {
   display: inline-block;
-  margin-top: 1.4rem;
+  margin-top: auto;
+  align-self: center;
   font-family: var(--sans-jp);
   font-size: .68rem;
   color: var(--warm);
