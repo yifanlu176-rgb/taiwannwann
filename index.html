@@ -266,7 +266,7 @@
     <div class="section-divider section-divider-centered"></div>
     <p class="section-desc" data-lang="ja">商品に関するご質問、ご注文、飲食事業のご相談など、お気軽にご連絡ください。</p>
     <p class="section-desc" data-lang="zh">商品諮詢、訂購事宜、餐飲事業合作等，歡迎隨時與我們聯繫。</p>
-    <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+    <form class="contact-form" id="contactForm">
       <div class="form-row">
         <div class="form-group">
           <label data-lang="ja">お名前 *</label>
@@ -282,12 +282,7 @@
       <div class="form-group">
         <label data-lang="ja">お問い合わせ種別</label>
         <label data-lang="zh">諮詢類別</label>
-        <select id="inquiry-type" data-field="inquiry">
-          <option data-lang="ja">商品について</option>
-          <option data-lang="ja">ご注文・配送について</option>
-          <option data-lang="ja">飲食事業について</option>
-          <option data-lang="ja">その他</option>
-        </select>
+        <select id="inquiry-type" data-field="inquiry"></select>
       </div>
       <div class="form-group">
         <label data-lang="ja">お問い合わせ内容</label>
@@ -349,6 +344,7 @@
 <script src="./assets/js/business.js"></script>
 <script src="./assets/js/page-copy.js"></script>
 <script src="./assets/js/site-content.js"></script>
+<script src="./assets/js/contact.js"></script>
 <script src="./assets/js/i18n.js"></script>
 <script src="./assets/js/main.js"></script>
 </body>

@@ -12,6 +12,7 @@
 - 业务模块：`assets/js/business.js`
 - 首页文案：`assets/js/page-copy.js`
 - 站点内容模块：`assets/js/site-content.js`
+- 联系区模块：`assets/js/contact.js`
 - 联系表单：Formspree `https://formspree.io/f/maqkwwqv`
 - 产品图片：`assets/img/products/`
 - 成功页样式：`assets/css/thanks.css`

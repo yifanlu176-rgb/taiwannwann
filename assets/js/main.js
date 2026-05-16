@@ -32,7 +32,17 @@ if (typeof window.renderSiteContent === 'function') {
   window.renderSiteContent();
 }
 
+if (typeof window.renderContactOptions === 'function') {
+  window.renderContactOptions(typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja');
+}
+
 function bindUiActions() {
+  const form = document.getElementById('contactForm');
+  if (form && !form.dataset.bound) {
+    form.addEventListener('submit', submitForm);
+    form.dataset.bound = 'true';
+  }
+
   document.querySelectorAll('[data-action="set-lang"]').forEach((btn) => {
     btn.addEventListener('click', () => {
       setLang(btn.dataset.lang);
@@ -58,15 +68,9 @@ function setLang(lang) {
   if (typeof window.applyLangState === 'function') {
     window.applyLangState(lang);
   }
-  const sel = document.getElementById('inquiry-type');
-  sel.innerHTML = '';
-  const opts = lang === 'ja'
-    ? ['商品について','ご注文・配送について','飲食事業について','その他']
-    : ['商品諮詢','訂購・配送事宜','餐飲事業合作','其他'];
-  opts.forEach(o => {
-    const opt = document.createElement('option');
-    opt.textContent = o; sel.appendChild(opt);
-  });
+  if (typeof window.renderContactOptions === 'function') {
+    window.renderContactOptions(lang);
+  }
 }
 
 // ─── REVEAL ───
@@ -95,11 +99,8 @@ function setContactMessage(lang, text, isError = false) {
 }
 
 function resetContactMessages() {
-  const messages = [
-    { lang: 'ja', text: '✦ お問い合わせを受け付けました。24時間以内にご返信いたします。' },
-    { lang: 'zh', text: '✦ 感謝您的聯繫，我們將在24小時內回覆您。' }
-  ];
-  messages.forEach(({ lang, text }) => {
+  ['ja', 'zh'].forEach((lang) => {
+    const text = typeof window.getContactCopy === 'function' ? window.getContactCopy(lang, 'success') : '';
     const el = getContactMessageEl(lang);
     if (!el) return;
     el.textContent = text;
@@ -134,7 +135,9 @@ async function submitForm(event) {
 
   if (btn) {
     btn.disabled = true;
-    btn.textContent = currentLang === 'ja' ? '送信中…' : '送出中…';
+    btn.textContent = typeof window.getContactCopy === 'function'
+      ? window.getContactCopy(currentLang, 'submitting')
+      : (currentLang === 'ja' ? '送信中…' : '送出中…');
     btn.style.background = 'var(--moss2)';
   }
 
@@ -155,9 +158,9 @@ async function submitForm(event) {
     if (messageEl) messageEl.value = '';
 
     if (currentLang === 'ja') {
-      setContactMessage('ja', '✦ お問い合わせを受け付けました。24時間以内にご返信いたします。');
+      setContactMessage('ja', typeof window.getContactCopy === 'function' ? window.getContactCopy('ja', 'success') : '✦ お問い合わせを受け付けました。24時間以内にご返信いたします。');
     } else {
-      setContactMessage('zh', '✦ 感謝您的聯繫，我們將在24小時內回覆您。');
+      setContactMessage('zh', typeof window.getContactCopy === 'function' ? window.getContactCopy('zh', 'success') : '✦ 感謝您的聯繫，我們將在24小時內回覆您。');
     }
 
     window.setTimeout(() => {
@@ -166,9 +169,9 @@ async function submitForm(event) {
   } catch (error) {
     console.error(error);
     if (currentLang === 'ja') {
-      setContactMessage('ja', '✦ 送信に失敗しました。時間をおいて再度お試しください。', true);
+      setContactMessage('ja', typeof window.getContactCopy === 'function' ? window.getContactCopy('ja', 'error') : '✦ 送信に失敗しました。時間をおいて再度お試しください。', true);
     } else {
-      setContactMessage('zh', '✦ 送出失敗，請稍後再試一次。', true);
+      setContactMessage('zh', typeof window.getContactCopy === 'function' ? window.getContactCopy('zh', 'error') : '✦ 送出失敗，請稍後再試一次。', true);
     }
   } finally {
     if (btn) {
