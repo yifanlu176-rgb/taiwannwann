@@ -22,6 +22,24 @@ if (typeof window.renderSiteContent === 'function') {
   window.renderSiteContent();
 }
 
+function bindUiActions() {
+  document.querySelectorAll('[data-action="set-lang"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setLang(btn.dataset.lang);
+    });
+  });
+
+  document.querySelectorAll('.contact-channel-btn[data-channel]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const messages = {
+        line: 'LINE: @taiwannwann',
+        wechat: 'WeChat: taiwannwann'
+      };
+      alert(messages[btn.dataset.channel] || '');
+    });
+  });
+}
+
 // ─── LANG ───
 function setLang(lang) {
   if (typeof window.setCurrentLang === 'function') {
@@ -158,6 +176,8 @@ async function submitForm(event) {
 if (typeof window.applyLangState === 'function') {
   window.applyLangState(typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja');
 }
+
+bindUiActions();
 
 // ─── NAV ───
 window.addEventListener('scroll', () => {

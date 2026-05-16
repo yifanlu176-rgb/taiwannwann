@@ -26,13 +26,13 @@
     <li><a href="#about">会社概要</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="ja" onclick="setLang('ja')">日本語</button>
-        <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
-      </div>
-      <a class="nav-cta" href="#contact" data-lang="ja">お問い合わせ</a>
-      <a class="nav-cta" href="#contact" data-lang="zh">聯絡我們</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" type="button" data-lang="ja" data-action="set-lang">日本語</button>
+      <button class="lang-btn" type="button" data-lang="zh" data-action="set-lang">中文</button>
+    </div>
+    <a class="nav-cta" href="#contact" data-lang="ja">お問い合わせ</a>
+    <a class="nav-cta" href="#contact" data-lang="zh">聯絡我們</a>
   </div>
 </nav>
 
@@ -42,14 +42,14 @@
     <p class="hero-eyebrow">Food · Health · Well-being</p>
     <h1 class="hero-title" data-lang="ja">
       旺旺と、<strong>豊かに生きる。</strong>
-      <span style="display:block;font-size:.48em;font-weight:300;color:var(--mid);letter-spacing:.06em;margin-top:.8rem;line-height:2;">
+      <span class="hero-copy">
         食べること、癒されること、健やかでいること。<br>
         暮らしのあらゆる場面で、そっと寄り添う。
       </span>
     </h1>
     <h1 class="hero-title-zh" data-lang="zh">
       旺旺相伴，<strong>豐盛生活。</strong>
-      <span style="display:block;font-size:.52em;font-weight:300;color:var(--mid);letter-spacing:.06em;margin-top:.8rem;line-height:2;">
+      <span class="hero-copy hero-copy-zh">
         飲食、健康、康養——<br>生活每個面向，我們都在。
       </span>
     </h1>
@@ -101,14 +101,14 @@
     <p class="philosophy-text" data-lang="ja">
       人は、<em>よく食べ</em>、よく癒され、<br>
       よく動いてこそ、<em>よく生きられる</em>。<br>
-      <span style="font-size:.6em;opacity:.5;display:block;margin-top:1.2rem;letter-spacing:.08em;">
+      <span class="philosophy-note">
         太旺旺株式会社は、その全てに応える企業でありたいと思います。
       </span>
     </p>
-    <p class="philosophy-text" data-lang="zh" style="font-family:'Noto Serif SC',serif;">
+    <p class="philosophy-text philosophy-text-zh" data-lang="zh">
       唯有<em>好好飲食</em>、好好調養、<br>
       好好生活，才能<em>真正旺盛</em>。<br>
-      <span style="font-size:.6em;opacity:.5;display:block;margin-top:1.2rem;letter-spacing:.08em;font-family:'Noto Sans JP',sans-serif;">
+      <span class="philosophy-note philosophy-note-zh">
         太旺旺株式会社，願成為陪伴您實現這一切的夥伴。
       </span>
     </p>
@@ -231,11 +231,11 @@
 <!-- CHANNELS -->
 <section id="channels">
   <div class="section-inner">
-    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="reveal section-center-block">
       <p class="section-label">Sales Channels</p>
       <h2 class="section-title" data-lang="ja">どこでも、<strong>お求めいただけます</strong></h2>
       <h2 class="section-title" data-lang="zh">多渠道，<strong>隨時購買</strong></h2>
-      <div class="section-divider" style="margin:1.2rem auto 1.4rem;"></div>
+      <div class="section-divider section-divider-centered"></div>
     </div>
     <div class="channels-grid" id="channelsGrid"></div>
   </div>
@@ -281,7 +281,7 @@
     <p class="section-label">Contact</p>
     <h2 class="section-title" data-lang="ja">お問い合わせ</h2>
     <h2 class="section-title" data-lang="zh">聯絡我們</h2>
-    <div class="section-divider" style="margin:1.2rem auto 1.4rem;"></div>
+    <div class="section-divider section-divider-centered"></div>
     <p class="section-desc" data-lang="ja">商品に関するご質問、ご注文、飲食事業のご相談など、お気軽にご連絡ください。</p>
     <p class="section-desc" data-lang="zh">商品諮詢、訂購事宜、餐飲事業合作等，歡迎隨時與我們聯繫。</p>
     <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
@@ -315,12 +315,12 @@
       </div>
       <button type="submit" class="form-submit" data-lang="ja">送信する</button>
       <button type="submit" class="form-submit" data-lang="zh">送出</button>
-      <p id="form-msg" style="display:none;text-align:center;color:var(--warm);font-size:.84rem;margin-top:1rem;font-family:var(--sans-jp);" data-lang="ja">✦ お問い合わせを受け付けました。24時間以内にご返信いたします。</p>
-      <p id="form-msg-zh" style="display:none;text-align:center;color:var(--warm);font-size:.84rem;margin-top:1rem;font-family:var(--sans-jp);" data-lang="zh">✦ 感謝您的聯繫，我們將在24小時內回覆您。</p>
+      <p id="form-msg" class="form-feedback" data-lang="ja">✦ お問い合わせを受け付けました。24時間以内にご返信いたします。</p>
+      <p id="form-msg-zh" class="form-feedback" data-lang="zh">✦ 感謝您的聯繫，我們將在24小時內回覆您。</p>
     </form>
     <div class="contact-channels">
-      <button class="contact-channel-btn" onclick="alert('LINE: @taiwannwann')">LINE</button>
-      <button class="contact-channel-btn" onclick="alert('WeChat: taiwannwann')">WeChat</button>
+      <button class="contact-channel-btn" type="button" data-channel="line">LINE</button>
+      <button class="contact-channel-btn" type="button" data-channel="wechat">WeChat</button>
     </div>
   </div>
 </section>
