@@ -23,13 +23,13 @@ if (typeof window.renderSiteContent === 'function') {
 }
 
 // ─── LANG ───
-let currentLang = 'ja';
 function setLang(lang) {
-  currentLang = lang;
-  document.body.classList.toggle('zh', lang === 'zh');
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
+  if (typeof window.setCurrentLang === 'function') {
+    window.setCurrentLang(lang);
+  }
+  if (typeof window.applyLangState === 'function') {
+    window.applyLangState(lang);
+  }
   const sel = document.getElementById('inquiry-type');
   sel.innerHTML = '';
   const opts = lang === 'ja'
@@ -50,11 +50,11 @@ document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 // ─── FORM ───
 const CONTACT_ENDPOINT = 'https://formspree.io/f/maqkwwqv';
 
-function getContactField(field, lang = currentLang) {
+function getContactField(field, lang = typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja') {
   return document.querySelector(`#contact [data-field="${field}"][data-lang="${lang}"]`) || document.querySelector(`#contact [data-field="${field}"]`);
 }
 
-function getContactMessageEl(lang = currentLang) {
+function getContactMessageEl(lang = typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja') {
   return document.getElementById(lang === 'ja' ? 'form-msg' : 'form-msg-zh');
 }
 
@@ -83,6 +83,7 @@ function resetContactMessages() {
 async function submitForm(event) {
   event.preventDefault();
   const form = event.currentTarget;
+  const currentLang = typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja';
   const btn = event.submitter || form.querySelector(`.form-submit[data-lang="${currentLang}"]`);
   const originalText = btn ? btn.textContent : '';
   const originalBg = btn ? btn.style.background : '';
@@ -130,6 +131,10 @@ async function submitForm(event) {
     } else {
       setContactMessage('zh', '✦ 感謝您的聯繫，我們將在24小時內回覆您。');
     }
+
+    window.setTimeout(() => {
+      window.location.href = `./thanks/?lang=${currentLang}`;
+    }, 650);
   } catch (error) {
     console.error(error);
     if (currentLang === 'ja') {
@@ -148,6 +153,10 @@ async function submitForm(event) {
       }
     }
   }
+}
+
+if (typeof window.applyLangState === 'function') {
+  window.applyLangState(typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'ja');
 }
 
 // ─── NAV ───

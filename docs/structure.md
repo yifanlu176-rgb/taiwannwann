@@ -7,10 +7,12 @@
 - 页面结构：`index.html`
 - 视觉样式：`assets/css/styles.css`
 - 页面脚本：`assets/js/main.js`
+- 语言状态：`assets/js/i18n.js`
 - 商品模块：`assets/js/products.js`
 - 站点内容模块：`assets/js/site-content.js`
 - 联系表单：Formspree `https://formspree.io/f/maqkwwqv`
 - 产品图片：`assets/img/products/`
+- 成功页：`thanks/index.html`
 
 ## 预留目录
 
