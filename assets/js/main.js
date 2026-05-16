@@ -22,6 +22,11 @@ if (typeof window.renderBusinessSection === 'function') {
   window.renderBusinessSection();
 }
 
+// ─── PAGE COPY ───
+if (typeof window.renderPageCopy === 'function') {
+  window.renderPageCopy();
+}
+
 // ─── SITE CONTENT ───
 if (typeof window.renderSiteContent === 'function') {
   window.renderSiteContent();

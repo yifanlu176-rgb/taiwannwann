@@ -89,17 +89,6 @@ const MISSION_ITEMS = [
   }
 ];
 
-const RESTAURANT_COPY = {
-  headingJa: '「食べる喜び」を、<br>大阪から。',
-  headingZh: '「飲食之樂」，<br>從大阪出發。',
-  bodyJa:
-    '太旺旺株式会社は、健康器具の輸入販売事業に続き、飲食事業への参入を進めています。食の豊かさは、人が心身ともに満たされるための基本。本物の美味しさと温かいおもてなしで、訪れる方の日常に特別な一瞬を届けることを目指します。',
-  bodyZh:
-    '太旺旺株式会社在健康器具進口銷售事業基礎上，正積極推進餐飲事業的拓展。飲食的豐盛，是人心身兼得的根本所在。我們以真實的美味與溫暖的待客之心，為每位到來的客人送上生活中的美好時刻。',
-  noteJa: '店舗詳細・開業情報は近日中に公開予定です。続報をお待ちください。',
-  noteZh: '店鋪詳情及開業資訊即將公開，敬請期待。'
-};
-
 function createLangElement(tagName, lang, text) {
   const el = document.createElement(tagName);
   el.dataset.lang = lang;

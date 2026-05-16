@@ -10,11 +10,13 @@
 - 语言状态：`assets/js/i18n.js`
 - 商品模块：`assets/js/products.js`
 - 业务模块：`assets/js/business.js`
+- 首页文案：`assets/js/page-copy.js`
 - 站点内容模块：`assets/js/site-content.js`
 - 联系表单：Formspree `https://formspree.io/f/maqkwwqv`
 - 产品图片：`assets/img/products/`
 - 成功页样式：`assets/css/thanks.css`
 - 成功页：`thanks/index.html`
+- 成功页语言脚本：`assets/js/thanks.js`
 
 ## 预留目录
 
