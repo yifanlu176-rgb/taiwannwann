@@ -17,6 +17,11 @@ if (typeof window.renderProductsGrid === 'function') {
   window.renderProductsGrid();
 }
 
+// ─── BUSINESS ───
+if (typeof window.renderBusinessSection === 'function') {
+  window.renderBusinessSection();
+}
+
 // ─── SITE CONTENT ───
 if (typeof window.renderSiteContent === 'function') {
   window.renderSiteContent();

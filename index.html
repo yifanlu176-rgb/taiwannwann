@@ -126,38 +126,20 @@
       <p class="section-desc" data-lang="ja">中国と日本をつなぐ健康器具の輸入販売、そして飲食事業の展開により、皆さまの食・健康・くらしを丁寧にサポートいたします。</p>
       <p class="section-desc" data-lang="zh">透過連結中日兩國的健康器具進口銷售，以及餐飲事業的發展，全方位支援您在飲食、健康、生活各層面的需求。</p>
     </div>
-    <div class="business-grid reveal reveal-delay-1">
+    <div class="business-grid reveal reveal-delay-1" id="businessGrid" aria-live="polite"></div>
+    <template id="business-card-template">
       <div class="biz-card">
-        <div class="biz-num">01</div>
-        <div class="biz-icon">🌿</div>
-        <div class="biz-name-ja" data-lang="ja">健康器具の輸入販売</div>
-        <div class="biz-name-ja" data-lang="zh">健康器具進口銷售</div>
-        <div class="biz-name-en">Health Products Import</div>
-        <p class="biz-desc" data-lang="ja">中国の伝統的な健康知恵を現代に活かした家庭用健康器具を厳選し、日本市場へ提供。ビーズまくら、経絡治療儀、遠赤外線マッサージ機など、日常の健康をサポートする商品を取り揃えています。</p>
-        <p class="biz-desc" data-lang="zh">精選融合中國傳統健康智慧的家用健康器具，引進日本市場。珠枕、經絡治療儀、遠紅外線按摩機等，支援日常健康管理。</p>
-        <span class="biz-tag">販売中</span>
+        <div class="biz-num"></div>
+        <div class="biz-icon"></div>
+        <div class="biz-name" data-lang="ja"></div>
+        <div class="biz-name" data-lang="zh"></div>
+        <div class="biz-name-en"></div>
+        <p class="biz-desc" data-lang="ja"></p>
+        <p class="biz-desc" data-lang="zh"></p>
+        <span class="biz-tag" data-lang="ja"></span>
+        <span class="biz-tag" data-lang="zh"></span>
       </div>
-      <div class="biz-card">
-        <div class="biz-num">02</div>
-        <div class="biz-icon">🛒</div>
-        <div class="biz-name-ja" data-lang="ja">オンライン販売</div>
-        <div class="biz-name-ja" data-lang="zh">線上銷售</div>
-        <div class="biz-name-en">Online Commerce</div>
-        <p class="biz-desc" data-lang="ja">Yahoo!ショッピング・楽天市場などの大手プラットフォームに加え、Instagram・Facebook・LINEなどのSNSを活用した多チャンネル販売で、より多くのお客様へ安心してお届けします。</p>
-        <p class="biz-desc" data-lang="zh">除Yahoo!購物、樂天市場等大型平台外，同時運用Instagram、Facebook、LINE等社群媒體，透過多渠道銷售，讓更多顧客便捷安心地購得商品。</p>
-        <span class="biz-tag">稼働中</span>
-      </div>
-      <div class="biz-card">
-        <div class="biz-num">03</div>
-        <div class="biz-icon">🍜</div>
-        <div class="biz-name-ja" data-lang="ja">飲食事業</div>
-        <div class="biz-name-ja" data-lang="zh">餐飲事業</div>
-        <div class="biz-name-en">Food & Dining</div>
-        <p class="biz-desc" data-lang="ja">「食」は豊かな暮らしの根本。飲食店の経営・運営事業を通じて、本物の美味しさと温かいおもてなしを大阪の地から発信してまいります。</p>
-        <p class="biz-desc" data-lang="zh">「飲食」是豐盛生活的根本。透過餐廳經營事業，從大阪出發，傳遞真正的美味與溫暖的待客之道。</p>
-        <span class="biz-tag coming">準備中</span>
-      </div>
-    </div>
+    </template>
   </div>
 </section>
 
@@ -364,6 +346,7 @@
 </footer>
 
 <script src="./assets/js/products.js"></script>
+<script src="./assets/js/business.js"></script>
 <script src="./assets/js/site-content.js"></script>
 <script src="./assets/js/i18n.js"></script>
 <script src="./assets/js/main.js"></script>

@@ -434,7 +434,7 @@ section { position: relative; }
   font-style: italic;
 }
 .biz-icon { font-size: 6.6rem; margin-bottom: 1.2rem; opacity: .7; text-align: center; }
-.biz-name-ja {
+.biz-name {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: .08em;
