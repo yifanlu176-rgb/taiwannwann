@@ -84,6 +84,8 @@ h1 {
 body.zh [data-lang="ja"] { display: none; }
 body.zh [data-lang="zh"] { display: unset; }
 @media (max-width: 600px) {
+  .thanks-shell { padding: 1rem; }
+  .thanks-card { padding: 1.6rem; }
   .actions { flex-direction: column; }
   .btn { text-align: center; }
 }

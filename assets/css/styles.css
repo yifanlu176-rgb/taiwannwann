@@ -923,6 +923,7 @@ footer {
 @media (max-width: 960px) {
   #hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
+  .hero-left { padding-right: 5%; }
   .business-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { grid-template-columns: 1fr; }
@@ -931,10 +932,62 @@ footer {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .channels-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  .nav-right { gap: .75rem; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-cta { padding: .45rem 1rem; }
+  .business-grid,
+  .products-grid,
+  .channels-grid,
+  .footer-grid { gap: 1rem; }
+  .biz-card,
+  .product-body,
+  .channel-card,
+  .about-philosophy-block,
+  .restaurant-info,
+  .contact-form { padding-left: 1.6rem; padding-right: 1.6rem; }
+  .hero-copy { max-width: 32rem; }
 }
 @media (max-width: 600px) {
   .products-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-left { padding: 7rem 5% 3rem; }
+  .hero-eyebrow { margin-bottom: 1.4rem; }
+  .hero-title,
+  .hero-title-zh {
+    margin-bottom: 1rem;
+  }
+  .hero-copy,
+  .hero-copy-zh {
+    font-size: .44em;
+    line-height: 1.9;
+  }
+  .section-inner,
+  .contact-inner,
+  .philosophy-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .section-title { letter-spacing: .06em; }
+  .section-desc { max-width: none; }
+  .biz-card,
+  .product-body,
+  .channel-card,
+  .about-philosophy-block,
+  .restaurant-info,
+  .contact-form {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  .contact-channels {
+    flex-direction: column;
+  }
+  .contact-channel-btn {
+    max-width: none;
+  }
+  .footer-bottom {
+    align-items: flex-start;
+  }
+  .footer-brand p {
+    max-width: none;
+  }
 }
