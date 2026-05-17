@@ -1,21 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://taiwannwann.co.jp',
-  integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: 'ja',
-        locales: {
-          ja: 'ja-JP',
-          zh: 'zh-TW',
-        },
-      },
-    }),
-  ],
+  // sitemap integration re-enabled in Day 4 once real locale pages exist.
+  integrations: [],
   i18n: {
     defaultLocale: 'ja',
     locales: ['ja', 'zh'],
