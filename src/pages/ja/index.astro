@@ -1,24 +1,37 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
 ---
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="alternate" hreflang="ja" href="/ja/" />
-    <link rel="alternate" hreflang="zh-TW" href="/zh/" />
-    <link rel="alternate" hreflang="x-default" href="/ja/" />
-    <title>太旺旺株式会社</title>
-    <meta
-      name="description"
-      content="中国の暮らしの知恵と、日本の丁寧な毎日を結ぶ、生活文化のブランド。"
-    />
-  </head>
-  <body>
-    <main style="font-family: 'Noto Serif JP', serif; padding: 4rem; max-width: 880px; margin: 0 auto;">
-      <h1>太旺旺株式会社</h1>
-      <p>v2.0 — 現在準備中</p>
-      <p><a href="/zh/">繁體中文 →</a></p>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="太旺旺株式会社 | 旺旺と、豊かに生きる"
+  description="中国の暮らしの知恵と、日本の丁寧な毎日を結ぶ、生活文化のブランド。65 歳から、はじまる物語。"
+  locale="ja"
+  canonicalPath="/ja/"
+>
+  <Hero
+    overline="太旺旺 — 65 歳から、はじまる物語"
+    title="旺旺と、<br />豊かに生きる。"
+    lede="中国の暮らしの中で受け継がれてきた、季節と身体を慈しむ道具と知恵を、日本の毎日にそっと届けています。"
+  />
+
+  <section class="placeholder">
+    <div class="container container--narrow">
+      <p class="placeholder__note">
+        ※ Hero 以下の各セクション（私たちのこと・商品・お問い合わせ）は Week 2 以降に順次公開します。
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    padding-block: var(--space-7);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .placeholder__note {
+    font-size: var(--fs-body-sm);
+    color: var(--text-muted);
+    text-align: center;
+  }
+</style>

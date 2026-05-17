@@ -1,0 +1,54 @@
+---
+interface Props {
+  overline: string;
+  /** May contain an inline <br /> for line break control */
+  title: string;
+  lede: string;
+}
+
+const { overline, title, lede } = Astro.props;
+---
+<section class="hero">
+  <div class="container">
+    <p class="hero__overline">{overline}</p>
+    <h1 class="hero__title" set:html={title} />
+    <p class="hero__lede">{lede}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-10) var(--space-9);
+    background: var(--bg-default);
+  }
+
+  .hero__overline {
+    font-family: var(--font-latin);
+    font-size: var(--fs-caption);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-warm);
+    margin-block-end: var(--space-5);
+  }
+
+  .hero__title {
+    font-family: var(--font-ja);
+    font-size: var(--fs-display);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-tight);
+    margin-block-end: var(--space-6);
+    max-width: 18ch;
+  }
+
+  :global(html[lang^="zh"]) .hero__title {
+    font-family: var(--font-zh);
+  }
+
+  .hero__lede {
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    max-width: 42ch;
+  }
+</style>

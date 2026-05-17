@@ -1,0 +1,71 @@
+---
+import '../styles/tokens.css';
+import '../styles/reset.css';
+import '../styles/base.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: 'ja' | 'zh';
+  canonicalPath: string;
+}
+
+const { title, description, locale, canonicalPath } = Astro.props;
+
+const config = {
+  ja: { htmlLang: 'ja', ogLocale: 'ja_JP', skipLabel: '本文へスキップ' },
+  zh: { htmlLang: 'zh-TW', ogLocale: 'zh_TW', skipLabel: '跳至主要內容' },
+} as const;
+
+const { htmlLang, ogLocale, skipLabel } = config[locale];
+
+const siteUrl = 'https://taiwannwann.co.jp';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f7f2ea" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="alternate" hreflang="ja" href={`${siteUrl}/ja/`} />
+    <link rel="alternate" hreflang="zh-TW" href={`${siteUrl}/zh/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/ja/`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content="太旺旺株式会社" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{skipLabel}</a>
+    <Header locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>
