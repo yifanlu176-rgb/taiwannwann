@@ -3,16 +3,16 @@ const CHANNEL_ITEMS = [
     icon: '🛍',
     nameJa: 'Yahoo!ショッピング',
     nameZh: 'Yahoo!購物',
-    descJa: 'LINEヤフー株式会社が運営する日本最大級のショッピングモールで商品をご購入いただけます。',
-    descZh: '在日本最大級購物平台之一Yahoo!購物上輕鬆選購我們的商品。',
+    descJa: '日本最大級のショッピングモール「Yahoo!ショッピング」でも、近日お求めいただけるよう準備しております。準備が整い次第、こちらにてご案内いたします。',
+    descZh: '我們也正在準備於日本最大級購物平台之一「Yahoo!購物」上架。店舖開設後將於此處公告。',
     revealClass: ''
   },
   {
     icon: '🏪',
     nameJa: '楽天市場',
     nameZh: '樂天市場',
-    descJa: '楽天グループ株式会社が運営する楽天市場でもお求めいただけます。ポイントも貯まります。',
-    descZh: '同步於樂天市場上架銷售，購物同時享有樂天點數回饋。',
+    descJa: '楽天市場でも、近日お求めいただけるよう準備中です。整いましたら、こちらでご案内いたします。',
+    descZh: '樂天市場店舖也正在籌備中。開設後將即時於此公告。',
     revealClass: 'reveal-delay-1'
   },
   {
@@ -64,8 +64,8 @@ const ABOUT_ROWS = [
   {
     labelJa: '販売チャンネル',
     labelZh: '銷售渠道',
-    valueJa: 'Yahoo!ショッピング・楽天市場・各種SNS',
-    valueZh: 'Yahoo!購物・樂天市場・各大社群平台',
+    valueJa: 'SNS（Instagram・Facebook・LINE）にて直接販売中。Yahoo!ショッピング・楽天市場は準備中',
+    valueZh: 'SNS（Instagram・Facebook・LINE）直接銷售中。Yahoo!購物・樂天市場店舖籌備中',
     shared: false
   }
 ];

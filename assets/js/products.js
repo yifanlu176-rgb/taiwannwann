@@ -8,7 +8,7 @@ const PRODUCT_ITEMS = [
     nameZh: '珠枕',
     descJa: '天然素材のビーズを使用した伝統的な健康まくら。首・肩のコリをやさしくほぐし、質の高い睡眠をサポートします。',
     descZh: '採用天然材質珠粒製成的傳統健康枕。溫和舒緩頸肩僵硬，支援高品質睡眠。',
-    channels: ['Yahoo!', '楽天', 'SNS'],
+    channels: ['SNS'],
     revealClass: ''
   },
   {
@@ -20,7 +20,7 @@ const PRODUCT_ITEMS = [
     nameZh: '艾草錘',
     descJa: 'ヨモギのエキスを配合した伝統的なツボ刺激ハンマー。経絡に沿ったケアで、体のめぐりを整えます。',
     descZh: '融入艾草精華的傳統穴位刺激錘，沿經絡調理，促進全身氣血循環。',
-    channels: ['Yahoo!', '楽天'],
+    channels: ['SNS'],
     revealClass: 'reveal-delay-1'
   },
   {
@@ -32,7 +32,7 @@ const PRODUCT_ITEMS = [
     nameZh: '經絡治療儀',
     descJa: '中医学の経絡理論に基づいた家庭用電気治療器。微弱電流でツボを刺激し、慢性的なコリや疲労感の緩和をサポート。',
     descZh: '依據中醫經絡理論設計的家用電療儀。以微電流刺激穴位，緩解慢性肌肉酸痛與疲勞感。',
-    channels: ['Yahoo!', '楽天', 'SNS'],
+    channels: ['SNS'],
     revealClass: 'reveal-delay-2'
   },
   {
@@ -44,7 +44,7 @@ const PRODUCT_ITEMS = [
     nameZh: '遠紅外線頸部按摩機',
     descJa: '遠赤外線温熱と振動マッサージを組み合わせた首専用ケア器具。デスクワークや長時間のスマホ使用による首のこわばりをほぐします。',
     descZh: '結合遠紅外線溫熱與振動按摩的頸部專用護理器具，舒緩久坐辦公或長時間使用手機造成的頸部僵硬。',
-    channels: ['Yahoo!', '楽天'],
+    channels: ['SNS'],
     revealClass: ''
   },
   {
@@ -56,7 +56,7 @@ const PRODUCT_ITEMS = [
     nameZh: '牛皮跳繩',
     descJa: '本革を使用した高品質な縄跳び。耐久性と握り心地にこだわり、日常の運動習慣をサポートします。',
     descZh: '採用真皮製成的高品質跳繩。注重耐用性與握感舒適度，助您養成日常運動好習慣。',
-    channels: ['Yahoo!', 'SNS'],
+    channels: ['SNS'],
     revealClass: 'reveal-delay-1'
   },
   {
@@ -68,7 +68,7 @@ const PRODUCT_ITEMS = [
     nameZh: '手肘枕',
     descJa: '腕・肘専用のサポートクッション。読書やスマホ利用時の肘への負担を軽減し、快適な姿勢を保ちます。',
     descZh: '手臂、手肘專用支撐墊枕。減輕閱讀或使用手機時手肘的負擔，保持舒適姿勢。',
-    channels: ['Yahoo!', '楽天'],
+    channels: ['SNS'],
     revealClass: 'reveal-delay-2'
   }
 ];
