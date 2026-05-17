@@ -28,11 +28,10 @@ body {
 }
 
 /* ─── LANG SWITCH ─── */
-[data-lang="zh"] { display: none; }
-body.zh [data-lang="ja"] { display: none; }
-body.zh [data-lang="zh"] { display: unset; }
-.lang-toggle [data-lang="ja"],
-.lang-toggle [data-lang="zh"] {
+[data-lang="zh"]:not(.lang-btn) { display: none; }
+body.zh [data-lang="ja"]:not(.lang-btn) { display: none; }
+body.zh [data-lang="zh"]:not(.lang-btn) { display: unset; }
+.lang-toggle .lang-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
