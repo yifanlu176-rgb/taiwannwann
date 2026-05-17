@@ -20,4 +20,52 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://taiwannwann.co.jp/ja/legal/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/privacy/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/privacy/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://taiwannwann.co.jp/zh/legal/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/privacy/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/privacy/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://taiwannwann.co.jp/ja/legal/transactions/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/transactions/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/transactions/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://taiwannwann.co.jp/zh/legal/transactions/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/transactions/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/transactions/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://taiwannwann.co.jp/ja/legal/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/terms/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/terms/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://taiwannwann.co.jp/zh/legal/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://taiwannwann.co.jp/ja/legal/terms/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://taiwannwann.co.jp/zh/legal/terms/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

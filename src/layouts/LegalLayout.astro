@@ -1,0 +1,151 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: 'ja' | 'zh';
+  canonicalPath: string;
+  pageTitle: string;
+  lastUpdated: string;
+}
+
+const { title, description, locale, canonicalPath, pageTitle, lastUpdated } = Astro.props;
+
+const notice = {
+  ja: '※ 本文書は標準的なテンプレートを参考に作成された draft 版です。最終版の公開前に行政書士または弁護士による確認を強く推奨いたします。',
+  zh: '※ 本文件為依據標準範本所擬之草案。最終公開前強烈建議經由行政書士或律師審閱確認。',
+}[locale];
+
+const updatedLabel = {
+  ja: '最終更新日',
+  zh: '最後更新日',
+}[locale];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  locale={locale}
+  canonicalPath={canonicalPath}
+>
+  <article class="legal">
+    <div class="container container--prose">
+      <header class="legal__header">
+        <h1>{pageTitle}</h1>
+        <p class="legal__meta">{updatedLabel}：{lastUpdated}</p>
+      </header>
+
+      <aside class="legal__notice" role="note">
+        {notice}
+      </aside>
+
+      <div class="legal__body">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-block: var(--space-9) var(--space-10);
+  }
+
+  .legal__header {
+    margin-block-end: var(--space-7);
+    border-block-end: 1px solid var(--border-subtle);
+    padding-block-end: var(--space-5);
+  }
+
+  .legal__header h1 {
+    margin-block-end: var(--space-3);
+  }
+
+  .legal__meta {
+    font-family: var(--font-latin);
+    font-size: var(--fs-body-sm);
+    color: var(--text-muted);
+    letter-spacing: var(--ls-wide);
+    margin: 0;
+  }
+
+  .legal__notice {
+    background: var(--bg-warm-subtle);
+    border-inline-start: 3px solid var(--accent-primary);
+    padding: var(--space-4) var(--space-5);
+    margin-block-end: var(--space-7);
+    font-size: var(--fs-body-sm);
+    color: var(--text-secondary);
+    line-height: var(--lh-base);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .legal__body :global(h2) {
+    margin-block: var(--space-7) var(--space-4);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-medium);
+    border-block-end: 1px solid var(--border-subtle);
+    padding-block-end: var(--space-2);
+  }
+
+  .legal__body :global(h2:first-child) {
+    margin-block-start: 0;
+  }
+
+  .legal__body :global(p) {
+    margin-block-end: var(--space-4);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+  }
+
+  .legal__body :global(ul),
+  .legal__body :global(ol) {
+    margin-block-end: var(--space-4);
+    padding-inline-start: var(--space-5);
+    color: var(--text-secondary);
+    line-height: var(--lh-loose);
+  }
+
+  .legal__body :global(li) {
+    margin-block-end: var(--space-2);
+  }
+
+  .legal__body :global(ul) {
+    list-style: disc;
+  }
+
+  .legal__body :global(ol) {
+    list-style: decimal;
+  }
+
+  .legal__body :global(dl) {
+    margin-block-end: var(--space-5);
+  }
+
+  .legal__body :global(dt) {
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    margin-block: var(--space-4) var(--space-1);
+  }
+
+  .legal__body :global(dt:first-child) {
+    margin-block-start: 0;
+  }
+
+  .legal__body :global(dd) {
+    color: var(--text-secondary);
+    margin-block-end: var(--space-3);
+    margin-inline-start: 0;
+    line-height: var(--lh-base);
+  }
+
+  .legal__body :global(strong) {
+    color: var(--text-primary);
+    font-weight: var(--fw-medium);
+  }
+
+  .legal__body :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
