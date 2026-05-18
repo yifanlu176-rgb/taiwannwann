@@ -15,6 +15,10 @@ interface Props {
 
 const { title, description, locale, canonicalPath } = Astro.props;
 
+/* Umami analytics — set env vars to enable */
+const umamiUrl = import.meta.env.PUBLIC_UMAMI_URL;   // e.g. https://umami.example.com
+const umamiId = import.meta.env.PUBLIC_UMAMI_ID;      // website ID from Umami dashboard
+
 const config = {
   ja: { htmlLang: 'ja', ogLocale: 'ja_JP', skipLabel: '本文へスキップ' },
   zh: { htmlLang: 'zh-TW', ogLocale: 'zh_TW', skipLabel: '跳至主要內容' },
@@ -98,6 +102,9 @@ const jsonLd = {
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    {umamiUrl && umamiId && (
+      <script is:inline defer src={`${umamiUrl}/script.js`} data-website-id={umamiId}></script>
+    )}
   </head>
   <body>
     <a href="#main" class="skip-link">{skipLabel}</a>
