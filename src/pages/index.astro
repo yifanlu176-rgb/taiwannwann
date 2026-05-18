@@ -14,6 +14,9 @@ const target = '/ja/';
     <title>太旺旺株式会社</title>
   </head>
   <body>
-    <p><a href={target}>太旺旺 →</a></p>
+    <!-- No visible content — redirect handled by Vercel edge or meta-refresh -->
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
   </body>
 </html>
