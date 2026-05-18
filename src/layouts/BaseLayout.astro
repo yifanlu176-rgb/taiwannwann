@@ -24,6 +24,43 @@ const { htmlLang, ogLocale, skipLabel } = config[locale];
 
 const siteUrl = 'https://taiwannwann.co.jp';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
+
+/* JSON-LD: Organization + WebSite (rendered on every page) */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      'name': '太旺旺株式会社',
+      'alternateName': 'Taiwannwann Co., Ltd.',
+      'url': siteUrl,
+      'logo': `${siteUrl}/favicon.svg`,
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': '深江北 2-1-3',
+        'addressLocality': '大阪市東成区',
+        'addressRegion': '大阪府',
+        'postalCode': '537-0002',
+        'addressCountry': 'JP',
+      },
+      'founder': {
+        '@type': 'Person',
+        'name': '楊 杰敏',
+      },
+      'foundingDate': '2024',
+      'sameAs': [],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      'url': siteUrl,
+      'name': '太旺旺株式会社',
+      'publisher': { '@id': `${siteUrl}/#organization` },
+      'inLanguage': ['ja', 'zh-TW'],
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang={htmlLang}>
@@ -52,6 +89,8 @@ const canonicalUrl = `${siteUrl}${canonicalPath}`;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
