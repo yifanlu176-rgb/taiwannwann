@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="太旺旺">
+  <!--
+    Direction C: 紋標 (Geometric Crest)
+    Abstract mark derived from 旺 = 日(sun) + 王(king/prosperity).
+    日 → solid square (source of warmth/light)
+    王 → three horizontal bars (heaven / human / earth)
+    Modern, ownable, works at all sizes.
+  -->
+
+  <!-- 日 — Sun square (left element) -->
+  <rect x="8" y="14" width="20" height="20" rx="1"
+        fill="#1a1812"/>
+  <!-- Inner line of 日 -->
+  <line x1="8" y1="24" x2="28" y2="24"
+        stroke="#f7f2ea" stroke-width="1.5"/>
+
+  <!-- 王 — Three bars (right element, extending full width) -->
+  <!-- Top bar: heaven -->
+  <rect x="34" y="14" width="22" height="3" rx="0.5"
+        fill="#b8915c"/>
+  <!-- Middle bar: human -->
+  <rect x="34" y="23" width="22" height="3" rx="0.5"
+        fill="#b8915c"/>
+  <!-- Bottom bar: earth -->
+  <rect x="34" y="31" width="22" height="3" rx="0.5"
+        fill="#b8915c"/>
+
+  <!-- Connecting vertical (王's spine) -->
+  <rect x="43" y="14" width="2.5" height="20" rx="0.5"
+        fill="#b8915c" opacity="0.3"/>
+
+  <!-- Grounding line — ties the two elements together -->
+  <line x1="8" y1="46" x2="56" y2="46"
+        stroke="#1a1812" stroke-width="0.75" opacity="0.4"/>
+</svg>

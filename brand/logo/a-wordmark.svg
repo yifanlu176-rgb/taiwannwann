@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="太旺旺">
+  <!--
+    Direction A: 書体標 (Typographic Wordmark)
+    Editorial minimalism. The brand name IS the logo.
+    Reference: 中川政七商店, 一保堂茶舗
+    Final version: convert text to outlines.
+  -->
+
+  <!-- Wordmark -->
+  <text x="180" y="46"
+        text-anchor="middle"
+        font-family="'Noto Serif JP', 'Noto Serif TC', serif"
+        font-size="34"
+        font-weight="400"
+        fill="#1a1812"
+        letter-spacing="0.4em">太旺旺</text>
+
+  <!-- Kintya accent line — quiet, asymmetric -->
+  <line x1="118" y1="62" x2="260" y2="62"
+        stroke="#b8915c" stroke-width="0.75"/>
+</svg>
