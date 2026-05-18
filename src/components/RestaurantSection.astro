@@ -1,0 +1,71 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: '食の事業',
+    badge: '準備中',
+    p1: '食べることは、いちばん身近な「自分を慈しむ」行為かもしれません。',
+    p2: '太旺旺では、中国の家庭料理と日本の食卓が出会う場所を、ゆっくりと準備しています。もう少しだけ、お待ちください。',
+  },
+  zh: {
+    heading: '飲食事業',
+    badge: '籌備中',
+    p1: '「吃」，或許是最貼近日常的「善待自己」。',
+    p2: '太旺旺正在慢慢地準備一個場所，讓中國的家常菜與日本的餐桌相遇。再請您稍等一下。',
+  },
+} as const;
+
+const c = t[locale];
+---
+<section class="restaurant">
+  <div class="container container--narrow">
+    <div class="restaurant__header">
+      <h2 class="restaurant__heading">{c.heading}</h2>
+      <span class="restaurant__badge">{c.badge}</span>
+    </div>
+    <p class="restaurant__body">{c.p1}</p>
+    <p class="restaurant__body">{c.p2}</p>
+  </div>
+</section>
+
+<style>
+  .restaurant {
+    padding-block: var(--section-padding-y);
+    background: var(--bg-subtle);
+  }
+
+  .restaurant__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block-end: var(--space-6);
+  }
+
+  .restaurant__heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+  }
+
+  .restaurant__badge {
+    font-size: var(--fs-caption);
+    color: var(--text-warm);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-3);
+    letter-spacing: var(--ls-wide);
+    white-space: nowrap;
+  }
+
+  .restaurant__body {
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    max-width: 48ch;
+  }
+</style>

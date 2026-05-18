@@ -1,0 +1,123 @@
+---
+/**
+ * StoryLayout — for narrative pages (About, future journal entries).
+ * Long-form prose with generous spacing and breathing room.
+ */
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: 'ja' | 'zh';
+  canonicalPath: string;
+  pageTitle: string;
+  closing?: string;
+  closingName?: string;
+}
+
+const { title, description, locale, canonicalPath, pageTitle, closing, closingName } = Astro.props;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  locale={locale}
+  canonicalPath={canonicalPath}
+>
+  <article class="story">
+    <div class="container story__container">
+      <header class="story__header">
+        <h1 class="story__title">{pageTitle}</h1>
+      </header>
+
+      <div class="story__body">
+        <slot />
+      </div>
+
+      {(closing || closingName) && (
+        <footer class="story__closing">
+          {closing && <p class="story__closing-title">{closing}</p>}
+          {closingName && <p class="story__closing-name">{closingName}</p>}
+        </footer>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .story {
+    padding-block: var(--space-10) var(--section-padding-y);
+  }
+
+  .story__container {
+    max-width: var(--container-prose);
+  }
+
+  .story__header {
+    margin-block-end: var(--space-9);
+  }
+
+  .story__title {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+  }
+
+  .story__body h2 {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-medium);
+    color: var(--text-warm);
+    margin-block-start: var(--space-9);
+    margin-block-end: var(--space-5);
+    padding-block-start: var(--space-7);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .story__body h2:first-child {
+    margin-block-start: 0;
+    padding-block-start: 0;
+    border-block-start: none;
+  }
+
+  .story__body p {
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    margin-block-end: var(--space-5);
+    max-width: 54ch;
+  }
+
+  .story__body blockquote {
+    margin-block: var(--space-5);
+    padding-inline-start: var(--space-5);
+    border-inline-start: 3px solid var(--accent-primary);
+    font-style: italic;
+  }
+
+  .story__body blockquote p {
+    color: var(--text-primary);
+  }
+
+  .story__body hr {
+    border: none;
+    border-block-start: 1px solid var(--border-subtle);
+    margin-block: var(--space-7);
+  }
+
+  .story__closing {
+    margin-block-start: var(--space-9);
+    padding-block-start: var(--space-7);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .story__closing-title {
+    font-size: var(--fs-body-sm);
+    color: var(--text-muted);
+    margin-block-end: var(--space-2);
+  }
+
+  .story__closing-name {
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wide);
+  }
+</style>

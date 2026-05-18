@@ -1,0 +1,122 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    tagline: '旺旺と、豊かに生きる。',
+    company: '太旺旺株式会社',
+    address: '大阪府大阪市東成区深江北 2-1-3',
+    rep: '代表取締役　楊　杰敏',
+    navAria: 'フッターナビゲーション',
+    links: [
+      { href: '/ja/legal/privacy/', label: 'プライバシーポリシー' },
+      { href: '/ja/legal/terms/', label: '利用規約' },
+      { href: '/ja/legal/transactions/', label: '特定商取引法に基づく表記' },
+    ],
+  },
+  zh: {
+    tagline: '與旺旺一同，豐盛地生活。',
+    company: '太旺旺株式會社',
+    address: '大阪府大阪市東成區深江北 2-1-3',
+    rep: '代表取締役　楊　杰敏',
+    navAria: '頁尾選單',
+    links: [
+      { href: '/zh/legal/privacy/', label: '隱私政策' },
+      { href: '/zh/legal/terms/', label: '使用條款' },
+      { href: '/zh/legal/transactions/', label: '特定商取引法相關記載' },
+    ],
+  },
+} as const;
+
+const localeT = t[locale];
+const currentYear = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <p class="site-footer__tagline">{localeT.tagline}</p>
+
+    <div class="site-footer__info">
+      <p class="site-footer__company">{localeT.company}</p>
+      <p>{localeT.address}</p>
+      <p>{localeT.rep}</p>
+    </div>
+
+    <nav class="site-footer__links" aria-label={localeT.navAria}>
+      {localeT.links.map(link => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+
+    <p class="site-footer__copyright">© {currentYear} {localeT.company}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    padding-block: var(--space-9) var(--space-6);
+    margin-block-start: var(--space-10);
+  }
+
+  .site-footer__tagline {
+    font-family: var(--font-ja);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-7);
+    max-width: 30ch;
+  }
+
+  :global(html[lang^="zh"]) .site-footer__tagline {
+    font-family: var(--font-zh);
+  }
+
+  .site-footer__info {
+    margin-block-end: var(--space-6);
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-snug);
+    opacity: 0.85;
+  }
+
+  .site-footer__info p {
+    margin-block-end: var(--space-2);
+  }
+
+  .site-footer__company {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    opacity: 1;
+  }
+
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    padding-block: var(--space-5);
+    border-block-start: 1px solid var(--paper-15);
+    margin-block-end: var(--space-4);
+  }
+
+  .site-footer__links a {
+    font-size: var(--fs-body-sm);
+    color: var(--text-inverse);
+    opacity: 0.75;
+    transition: opacity var(--duration-instant) var(--ease-smooth);
+  }
+
+  .site-footer__links a:hover {
+    opacity: 1;
+  }
+
+  .site-footer__copyright {
+    font-family: var(--font-latin);
+    font-size: var(--fs-caption);
+    letter-spacing: var(--ls-wide);
+    opacity: 0.55;
+  }
+</style>

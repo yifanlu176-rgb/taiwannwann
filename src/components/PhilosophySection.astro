@@ -1,0 +1,98 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: '私たちが大切にしていること',
+    lines: [
+      'よく食べること。',
+      'よく休むこと。',
+      'よく動くこと。',
+    ],
+    body: 'それだけのことが、実はいちばん難しい。',
+    detail:
+      '太旺旺は、中国の暮らしの中で何百年も受け継がれてきた、季節に寄り添い、身体を慈しむ小さな知恵に目を向けています。特別なことではなく、ただ毎日を丁寧に。焦らず、急がず——それが、わたしたちの考える「豊かさ」です。',
+    cta: '私たちの物語を読む →',
+  },
+  zh: {
+    heading: '我們珍視的事',
+    lines: [
+      '好好地吃。',
+      '好好地休息。',
+      '好好地活動。',
+    ],
+    body: '如此簡單的事，其實最為困難。',
+    detail:
+      '太旺旺關注的，是中國日常生活中傳承了數百年、順應時節、珍惜身體的小小智慧。不是什麼特別的事——只是每一天都認真度過。不急、不趕，這就是我們所理解的「豐盛」。',
+    cta: '閱讀我們的故事 →',
+  },
+} as const;
+
+const c = t[locale];
+---
+<section id="philosophy" class="philosophy">
+  <div class="container container--narrow">
+    <h2 class="philosophy__heading">{c.heading}</h2>
+    <div class="philosophy__lines" aria-label={locale === 'ja' ? '三つの柱' : '三個支柱'}>
+      {c.lines.map(line => <p class="philosophy__line">{line}</p>)}
+    </div>
+    <p class="philosophy__bridge">{c.body}</p>
+    <p class="philosophy__detail">{c.detail}</p>
+    <a href={`/${locale}/about/`} class="philosophy__cta">{c.cta}</a>
+  </div>
+</section>
+
+<style>
+  .philosophy {
+    padding-block: var(--section-padding-y);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .philosophy__heading {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-medium);
+    color: var(--text-warm);
+    letter-spacing: var(--ls-wide);
+    margin-block-end: var(--space-7);
+  }
+
+  .philosophy__lines {
+    margin-block-end: var(--space-6);
+  }
+
+  .philosophy__line {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-2);
+  }
+
+  .philosophy__bridge {
+    font-size: var(--fs-body-lg);
+    color: var(--text-secondary);
+    margin-block-end: var(--space-6);
+  }
+
+  .philosophy__detail {
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    max-width: 54ch;
+    margin-block-end: var(--space-7);
+  }
+
+  .philosophy__cta {
+    font-size: var(--fs-body-sm);
+    color: var(--text-link);
+    letter-spacing: var(--ls-wide);
+    transition: color var(--duration-instant) var(--ease-smooth);
+  }
+
+  .philosophy__cta:hover {
+    color: var(--accent-primary);
+  }
+</style>

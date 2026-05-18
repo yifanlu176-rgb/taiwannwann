@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import PhilosophySection from '../../components/PhilosophySection.astro';
+import AboutPreview from '../../components/AboutPreview.astro';
+import ProductsSection from '../../components/ProductsSection.astro';
+import RestaurantSection from '../../components/RestaurantSection.astro';
+import ChannelsSection from '../../components/ChannelsSection.astro';
+import ContactSection from '../../components/ContactSection.astro';
+---
+<BaseLayout
+  title="太旺旺株式會社 | 與旺旺一同，豐盛地生活"
+  description="連結中國生活智慧與日本細緻日常的生活文化品牌。65 歲，從這裡開始的故事。"
+  locale="zh"
+  canonicalPath="/zh/"
+>
+  <Hero
+    overline="太旺旺 — 65 歲，從這裡開始的故事"
+    title="與旺旺一同，<br />豐盛地生活。"
+    lede="將承載於中國日常裡、慰藉時節與身心的器物與智慧，靜靜地遞送到日本的每一天。"
+  />
+  <PhilosophySection locale="zh" />
+  <AboutPreview locale="zh" />
+  <ProductsSection locale="zh" />
+  <RestaurantSection locale="zh" />
+  <ChannelsSection locale="zh" />
+  <ContactSection locale="zh" />
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: '商品是醫療器材嗎？',
+    a: '不是。本公司所有商品皆為<strong>雜貨・生活用品</strong>。非醫療器材，亦不保證特定之功效或效果。這些是取材自中國傳統生活中的素材與形制的生活器物，歡迎在日常中輕鬆使用。',
+  },
+  {
+    q: '可以在哪裡購買？',
+    a: '目前可透過 Instagram、Facebook、LINE 直接購買。Yahoo!購物及樂天市場的店舖正在籌備中。',
+  },
+  {
+    q: '付款方式？',
+    a: '銀行匯款，或經由社群媒體溝通後決定。詳情請參閱<a href="/zh/legal/transactions/">特定商取引法相關記載</a>。',
+  },
+  {
+    q: '需要運費嗎？',
+    a: '依商品及配送地區而異。下單時會另行告知。',
+  },
+  {
+    q: '可以退貨或換貨嗎？',
+    a: '商品送達後 7 日內，請透過<a href="/zh/#contact">聯絡表單</a>與我們聯繫。商品未拆封、未使用的情況下可受理退貨（退貨運費由客戶負擔）。瑕疵品或寄錯商品由本公司負擔運費，以換貨或退款方式處理。',
+  },
+  {
+    q: '可以寄送到海外嗎？',
+    a: '目前僅限日本國內配送。海外配送將於日後研議。',
+  },
+  {
+    q: '想更詳細地了解商品的素材與使用方式。',
+    a: '各商品的資訊記載於首頁的商品區塊。若需進一步了解，歡迎<a href="/zh/#contact">聯絡我們</a>。',
+  },
+];
+---
+<BaseLayout
+  title="常見問題 | 太旺旺株式會社"
+  description="太旺旺株式會社的商品、訂購、配送相關常見問題與解答。"
+  locale="zh"
+  canonicalPath="/zh/faq/"
+>
+  <section class="faq">
+    <div class="container faq__container">
+      <h1 class="faq__title">常見問題</h1>
+
+      <dl class="faq__list">
+        {faqs.map(item => (
+          <div class="faq__item">
+            <dt class="faq__q">{item.q}</dt>
+            <dd class="faq__a" set:html={item.a} />
+          </div>
+        ))}
+      </dl>
+
+      <div class="faq__footer">
+        <p>其他問題歡迎透過<a href="/zh/#contact">聯絡表單</a>與我們聯繫。</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq {
+    padding-block: var(--space-10) var(--section-padding-y);
+  }
+
+  .faq__container {
+    max-width: var(--container-prose);
+  }
+
+  .faq__title {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-9);
+  }
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq__item {
+    padding-block: var(--space-6);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .faq__item:last-child {
+    border-block-end: 1px solid var(--border-subtle);
+  }
+
+  .faq__q {
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-medium);
+    margin-block-end: var(--space-3);
+  }
+
+  .faq__a {
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    max-width: 56ch;
+  }
+
+  .faq__a :global(a) {
+    color: var(--text-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .faq__a :global(strong) {
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+  }
+
+  .faq__footer {
+    margin-block-start: var(--space-8);
+    font-size: var(--fs-body-sm);
+    color: var(--text-muted);
+  }
+
+  .faq__footer a {
+    color: var(--text-link);
+  }
+</style>

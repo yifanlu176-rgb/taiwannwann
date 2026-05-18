@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" role="img" aria-label="太旺旺 — 旺旺と、豊かに生きる。">
+  <!--
+    Direction A variant: Wordmark + tagline
+    For use on homepage hero or business cards.
+  -->
+
+  <!-- Wordmark -->
+  <text x="180" y="42"
+        text-anchor="middle"
+        font-family="'Noto Serif JP', 'Noto Serif TC', serif"
+        font-size="34"
+        font-weight="400"
+        fill="#1a1812"
+        letter-spacing="0.4em">太旺旺</text>
+
+  <!-- Kintya accent line -->
+  <line x1="118" y1="58" x2="260" y2="58"
+        stroke="#b8915c" stroke-width="0.75"/>
+
+  <!-- Tagline -->
+  <text x="180" y="80"
+        text-anchor="middle"
+        font-family="'Noto Serif JP', serif"
+        font-size="11"
+        font-weight="300"
+        fill="#1a1812"
+        letter-spacing="0.15em"
+        opacity="0.7">旺旺と、豊かに生きる。</text>
+</svg>

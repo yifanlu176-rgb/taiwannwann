@@ -1,0 +1,163 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: 'お問い合わせ',
+    body: '商品について、お取引について、その他どんなことでも。お気軽にお声がけください。',
+    name: 'お名前',
+    email: 'メールアドレス',
+    message: 'お問い合わせ内容',
+    submit: '送信する',
+    note: '※ 通常 3 営業日以内にご返信いたします。',
+  },
+  zh: {
+    heading: '聯絡我們',
+    body: '關於商品、合作，或任何您想問的事。歡迎隨時與我們聯繫。',
+    name: '姓名',
+    email: '電子郵件',
+    message: '諮詢內容',
+    submit: '送出',
+    note: '※ 通常於 3 個工作日內回覆。',
+  },
+} as const;
+
+const c = t[locale];
+---
+<section id="contact" class="contact">
+  <div class="container container--narrow">
+    <h2 class="contact__heading">{c.heading}</h2>
+    <p class="contact__body">{c.body}</p>
+
+    <form
+      action="https://formspree.io/f/maqkwwqv"
+      method="POST"
+      class="contact__form"
+    >
+      <!-- Honeypot -->
+      <div class="sr-only" aria-hidden="true">
+        <label>
+          Leave blank
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
+
+      <input type="hidden" name="_language" value={locale} />
+
+      <div class="form-group">
+        <label for="name">{c.name}</label>
+        <input type="text" id="name" name="name" required autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">{c.email}</label>
+        <input type="email" id="email" name="email" required autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">{c.message}</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="contact__submit">{c.submit}</button>
+    </form>
+
+    <p class="contact__note">{c.note}</p>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding-block: var(--section-padding-y);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .contact__heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-4);
+  }
+
+  .contact__body {
+    font-size: var(--fs-body-lg);
+    color: var(--text-secondary);
+    line-height: var(--lh-loose);
+    margin-block-end: var(--space-7);
+  }
+
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-block-end: var(--space-5);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-group label {
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-medium);
+    color: var(--text-secondary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: inherit;
+    font-size: var(--fs-body);
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+    transition: border-color var(--duration-quick) var(--ease-smooth);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-focus);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact__submit {
+    align-self: flex-start;
+    font-family: inherit;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    color: var(--text-inverse);
+    background: var(--sumi);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-7);
+    cursor: pointer;
+    transition: background var(--duration-quick) var(--ease-smooth),
+                transform var(--duration-instant) var(--ease-smooth);
+  }
+
+  .contact__submit:hover {
+    background: var(--sumi-90);
+  }
+
+  .contact__submit:active {
+    transform: scale(0.98);
+  }
+
+  .contact__note {
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+  }
+</style>
