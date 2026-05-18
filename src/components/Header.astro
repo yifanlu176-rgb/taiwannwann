@@ -12,6 +12,7 @@ const t = {
     nav: [
       { href: '#about', label: '私たちのこと' },
       { href: '#products', label: '商品' },
+      { href: '/ja/faq/', label: 'FAQ' },
       { href: '#contact', label: 'お問い合わせ' },
     ],
     switch: { label: '繁體中文', path: '/zh/' },
@@ -22,6 +23,7 @@ const t = {
     nav: [
       { href: '#about', label: '關於我們' },
       { href: '#products', label: '商品' },
+      { href: '/zh/faq/', label: 'FAQ' },
       { href: '#contact', label: '聯絡我們' },
     ],
     switch: { label: '日本語', path: '/ja/' },
@@ -37,7 +39,7 @@ const localeT = t[locale];
     </a>
     <nav class="site-header__nav" aria-label={localeT.navAria}>
       {localeT.nav.map(item => (
-        <a href={`/${locale}/${item.href}`}>{item.label}</a>
+        <a href={item.href.startsWith('/') ? item.href : `/${locale}/${item.href}`}>{item.label}</a>
       ))}
     </nav>
     <a href={localeT.switch.path} class="lang-switch">{localeT.switch.label}</a>

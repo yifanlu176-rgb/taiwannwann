@@ -1,0 +1,92 @@
+---
+/**
+ * 404 page — bilingual, defaults to Japanese.
+ * Astro serves this for all unmatched routes.
+ */
+---
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found | 太旺旺株式会社</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    :root {
+      --cream: #f7f2ea;
+      --sumi: #1a1812;
+      --kintya: #b8915c;
+      --sumi-55: rgba(26, 24, 18, 0.55);
+    }
+
+    * { margin: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      background: var(--cream);
+      color: var(--sumi);
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .error-page {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .error-page__code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 6rem);
+      font-weight: 300;
+      color: var(--kintya);
+      line-height: 1;
+      margin-block-end: 1.5rem;
+    }
+
+    .error-page__title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-block-end: 0.5rem;
+    }
+
+    .error-page__body {
+      font-size: 0.9375rem;
+      color: var(--sumi-55);
+      margin-block-end: 2rem;
+      line-height: 1.6;
+    }
+
+    .error-page__links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .error-page__links a {
+      font-size: 0.875rem;
+      color: var(--kintya);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .error-page__links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <p class="error-page__code">404</p>
+    <h1 class="error-page__title">ページが見つかりません</h1>
+    <p class="error-page__body">お探しのページは、移動または削除された可能性があります。</p>
+    <div class="error-page__links">
+      <a href="/ja/">トップページへ（日本語）</a>
+      <a href="/zh/">回到首頁（中文）</a>
+    </div>
+  </div>
+</body>
+</html>

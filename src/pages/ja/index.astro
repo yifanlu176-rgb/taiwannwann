@@ -1,6 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import PhilosophySection from '../../components/PhilosophySection.astro';
+import AboutPreview from '../../components/AboutPreview.astro';
+import ProductsSection from '../../components/ProductsSection.astro';
+import RestaurantSection from '../../components/RestaurantSection.astro';
+import ChannelsSection from '../../components/ChannelsSection.astro';
+import ContactSection from '../../components/ContactSection.astro';
 ---
 <BaseLayout
   title="太旺旺株式会社 | 旺旺と、豊かに生きる"
@@ -13,25 +19,10 @@ import Hero from '../../components/Hero.astro';
     title="旺旺と、<br />豊かに生きる。"
     lede="中国の暮らしの中で受け継がれてきた、季節と身体を慈しむ道具と知恵を、日本の毎日にそっと届けています。"
   />
-
-  <section class="placeholder">
-    <div class="container container--narrow">
-      <p class="placeholder__note">
-        ※ Hero 以下の各セクション（私たちのこと・商品・お問い合わせ）は Week 2 以降に順次公開します。
-      </p>
-    </div>
-  </section>
+  <PhilosophySection locale="ja" />
+  <AboutPreview locale="ja" />
+  <ProductsSection locale="ja" />
+  <RestaurantSection locale="ja" />
+  <ChannelsSection locale="ja" />
+  <ContactSection locale="ja" />
 </BaseLayout>
-
-<style>
-  .placeholder {
-    padding-block: var(--space-7);
-    border-block-start: 1px solid var(--border-subtle);
-  }
-
-  .placeholder__note {
-    font-size: var(--fs-body-sm);
-    color: var(--text-muted);
-    text-align: center;
-  }
-</style>

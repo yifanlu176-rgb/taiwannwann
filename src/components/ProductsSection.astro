@@ -1,0 +1,271 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: '暮らしの道具',
+    subtitle: '中国の伝統に根ざした、静かな道具たち。',
+    intro:
+      '中国の暮らしの中で長く使われてきた素材やかたちを、日本の毎日に馴染むよう、ひとつひとつ選んでいます。医療器具ではありません。効能効果を約束するものでもありません。ただ、暮らしのそばに置いて、季節とともに使っていただけたら。',
+    cta: 'SNS で購入する →',
+    contact: 'お問い合わせ',
+  },
+  zh: {
+    heading: '生活的器物',
+    subtitle: '根植於中國傳統的、安靜的器物們。',
+    intro:
+      '我們一件一件地挑選在中國日常生活中長久使用的素材與形制，讓它們融入日本的每一天。這些不是醫療器材，也不承諾任何功效。只希望您能把它們放在身邊，隨著季節，慢慢地使用。',
+    cta: '透過社群購買 →',
+    contact: '聯絡我們',
+  },
+} as const;
+
+const products = {
+  ja: [
+    {
+      img: '/assets/img/products/zhuzhen1.png',
+      alt: 'ビーズまくらの外観',
+      category: '枕のしつらえ',
+      name: 'ビーズまくら',
+      desc: '天然素材のビーズを詰めた、中国の伝統的な意匠の枕。お部屋に馴染む、静かな佇まい。',
+    },
+    {
+      img: '/assets/img/products/zhuzhen2.png',
+      alt: 'ビーズまくら（小）の外観',
+      category: '枕のしつらえ',
+      name: 'ビーズまくら（小）',
+      desc: '持ち運びやすいコンパクトサイズ。旅先やお昼休みのおともに。',
+    },
+    {
+      img: '/assets/img/products/aicaochui.png',
+      alt: 'よもぎの手棒の外観',
+      category: '中国伝統の道具',
+      name: 'よもぎの手棒',
+      desc: 'よもぎの香りが特徴の、中国の暮らしに古くからある手持ちの道具。',
+    },
+    {
+      img: '/assets/img/products/jingluoyi.png',
+      alt: '経絡の道具の外観',
+      category: '中国伝統の道具',
+      name: '経絡の道具',
+      desc: '経絡をモチーフにした、中国伝統の意匠の道具。暮らしのそばに。',
+    },
+    {
+      img: '/assets/img/products/hongwaizhiliaoyi.png',
+      alt: '首のあたための外観',
+      category: '中国伝統の道具',
+      name: '首のあたため',
+      desc: '首もとをやさしく温める、コンパクトな道具。ほっとするひとときに。',
+    },
+    {
+      img: '/assets/img/products/tiaosheng.png',
+      alt: '牛革の縄跳びの外観',
+      category: '暮らしのもの',
+      name: '牛革の縄跳び',
+      desc: '本革ならではの手触りと質感。長く使うほどに、手に馴染む。',
+    },
+    {
+      img: '/assets/img/products/shouzhouzhen.png',
+      alt: '肘まくらの外観',
+      category: '枕のしつらえ',
+      name: '肘まくら',
+      desc: '手もとに置く小さなまくら。読書や一息つく時間のおともに。',
+    },
+  ],
+  zh: [
+    {
+      img: '/assets/img/products/zhuzhen1.png',
+      alt: '珠枕外觀',
+      category: '枕的器物',
+      name: '珠枕',
+      desc: '以天然材質珠粒填充的傳統中式枕頭。安靜的佇立，融入居室氛圍。',
+    },
+    {
+      img: '/assets/img/products/zhuzhen2.png',
+      alt: '珠枕（小）外觀',
+      category: '枕的器物',
+      name: '珠枕（小）',
+      desc: '便於攜帶的小巧尺寸。旅途或午休時的好夥伴。',
+    },
+    {
+      img: '/assets/img/products/aicaochui.png',
+      alt: '艾草手棒外觀',
+      category: '中國傳統器物',
+      name: '艾草手棒',
+      desc: '帶著艾草香氣，自古存在於中國日常生活中的手持器物。',
+    },
+    {
+      img: '/assets/img/products/jingluoyi.png',
+      alt: '經絡器物外觀',
+      category: '中國傳統器物',
+      name: '經絡器物',
+      desc: '以經絡為主題的中國傳統器物。陪伴在日常左右。',
+    },
+    {
+      img: '/assets/img/products/hongwaizhiliaoyi.png',
+      alt: '頸部暖具外觀',
+      category: '中國傳統器物',
+      name: '頸部暖具',
+      desc: '溫柔地溫暖頸部的小巧器物。送給自己一段舒心的時光。',
+    },
+    {
+      img: '/assets/img/products/tiaosheng.png',
+      alt: '牛皮跳繩外觀',
+      category: '日常之物',
+      name: '牛皮跳繩',
+      desc: '真皮獨有的觸感與質地。越用越合手。',
+    },
+    {
+      img: '/assets/img/products/shouzhouzhen.png',
+      alt: '手肘枕外觀',
+      category: '枕的器物',
+      name: '手肘枕',
+      desc: '放在手邊的小枕頭。閱讀或小憩時的好夥伴。',
+    },
+  ],
+} as const;
+
+const c = t[locale];
+const items = products[locale];
+---
+<section id="products" class="products">
+  <div class="container">
+    <div class="products__header">
+      <h2 class="products__heading">{c.heading}</h2>
+      <p class="products__subtitle">{c.subtitle}</p>
+      <p class="products__intro">{c.intro}</p>
+    </div>
+
+    <div class="products__grid">
+      {items.map(item => (
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img
+              src={item.img}
+              alt={item.alt}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="400"
+            />
+          </div>
+          <span class="product-card__cat">{item.category}</span>
+          <h3 class="product-card__name">{item.name}</h3>
+          <p class="product-card__desc">{item.desc}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="products__footer">
+      <p class="products__purchase">
+        <a href={`/${locale}/#contact`}>{c.contact}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    padding-block: var(--section-padding-y);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .products__header {
+    max-width: var(--container-narrow);
+    margin-block-end: var(--space-8);
+  }
+
+  .products__heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-3);
+  }
+
+  .products__subtitle {
+    font-size: var(--fs-body-lg);
+    color: var(--text-secondary);
+    margin-block-end: var(--space-5);
+  }
+
+  .products__intro {
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
+    color: var(--text-muted);
+    max-width: 56ch;
+  }
+
+  .products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-7) var(--space-5);
+    margin-block-end: var(--space-8);
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card__img-wrap {
+    aspect-ratio: 1;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-block-end: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5);
+  }
+
+  .product-card__img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform var(--duration-base) var(--ease-smooth);
+  }
+
+  .product-card:hover .product-card__img-wrap img {
+    transform: scale(1.03);
+  }
+
+  .product-card__cat {
+    font-size: var(--fs-caption);
+    color: var(--text-warm);
+    letter-spacing: var(--ls-wide);
+    margin-block-end: var(--space-2);
+  }
+
+  .product-card__name {
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-medium);
+    margin-block-end: var(--space-2);
+  }
+
+  .product-card__desc {
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-base);
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  .products__footer {
+    text-align: center;
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .products__purchase {
+    font-size: var(--fs-body-sm);
+    color: var(--text-muted);
+  }
+
+  .products__purchase a {
+    color: var(--text-link);
+  }
+</style>

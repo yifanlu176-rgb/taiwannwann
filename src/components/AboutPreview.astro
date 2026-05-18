@@ -1,0 +1,74 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: '旺旺の物語',
+    p1: '2024 年の夏、ひとりの女性が初めて日本を訪れました。',
+    p2: '60 歳を過ぎても、自分の場所で一生懸命に手を動かしている人たち。その姿に心を動かされ、65 歳で、大阪に小さな会社を立ち上げました。',
+    p3: '中国と日本のあいだに静かに立ち、暮らしの知恵を橋渡しすること。それが太旺旺のはじまりです。',
+    cta: '物語のつづきを読む →',
+  },
+  zh: {
+    heading: '旺旺的故事',
+    p1: '2024 年夏天，一位女性第一次來到日本。',
+    p2: '那些年過六十，依然在自己的崗位上認真做事的人們——她被那樣的身影深深打動，在 65 歲這一年，於大阪創辦了一間小公司。',
+    p3: '靜靜地站在中國與日本之間，為生活的智慧搭起一座橋。這就是太旺旺的起點。',
+    cta: '繼續閱讀 →',
+  },
+} as const;
+
+const c = t[locale];
+---
+<section id="about" class="about-preview">
+  <div class="container container--narrow">
+    <h2 class="about-preview__heading">{c.heading}</h2>
+    <div class="about-preview__body">
+      <p>{c.p1}</p>
+      <p>{c.p2}</p>
+      <p>{c.p3}</p>
+    </div>
+    <a href={`/${locale}/about/`} class="about-preview__cta">{c.cta}</a>
+  </div>
+</section>
+
+<style>
+  .about-preview {
+    padding-block: var(--section-padding-y);
+    background: var(--bg-subtle);
+  }
+
+  .about-preview__heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-7);
+  }
+
+  .about-preview__body {
+    margin-block-end: var(--space-7);
+  }
+
+  .about-preview__body p {
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-loose);
+    color: var(--text-secondary);
+    max-width: 52ch;
+    margin-block-end: var(--space-5);
+  }
+
+  .about-preview__cta {
+    font-size: var(--fs-body-sm);
+    color: var(--text-link);
+    letter-spacing: var(--ls-wide);
+    transition: color var(--duration-instant) var(--ease-smooth);
+  }
+
+  .about-preview__cta:hover {
+    color: var(--accent-primary);
+  }
+</style>

@@ -1,0 +1,157 @@
+---
+interface Props {
+  locale: 'ja' | 'zh';
+}
+
+const { locale } = Astro.props;
+
+const t = {
+  ja: {
+    heading: 'お求めいただける場所',
+    channels: [
+      {
+        icon: '📱',
+        name: 'SNS・直接販売',
+        desc: 'Instagram・Facebook・LINE を通じて、直接お届けしています。商品の使い方や季節のご案内も SNS で発信しています。',
+        active: true,
+      },
+      {
+        icon: '🛍',
+        name: 'Yahoo!ショッピング',
+        desc: 'Yahoo!ショッピングでもお求めいただけるよう、準備を進めています。整いましたら、こちらでご案内します。',
+        active: false,
+      },
+      {
+        icon: '🏪',
+        name: '楽天市場',
+        desc: '楽天市場での販売も準備中です。開店しましたら、こちらでお知らせします。',
+        active: false,
+      },
+    ],
+    badge: '準備中',
+  },
+  zh: {
+    heading: '購買方式',
+    channels: [
+      {
+        icon: '📱',
+        name: '社群媒體・直接銷售',
+        desc: '透過 Instagram、Facebook、LINE 直接為您寄送。商品的使用方式與時令資訊，也會在社群上分享。',
+        active: true,
+      },
+      {
+        icon: '🛍',
+        name: 'Yahoo!購物',
+        desc: '目前正在準備於 Yahoo!購物上架。店舖開設後將在此公告。',
+        active: false,
+      },
+      {
+        icon: '🏪',
+        name: '樂天市場',
+        desc: '樂天市場的店舖也正在籌備中。開店後將在此通知。',
+        active: false,
+      },
+    ],
+    badge: '籌備中',
+  },
+} as const;
+
+const c = t[locale];
+---
+<section class="channels">
+  <div class="container">
+    <h2 class="channels__heading">{c.heading}</h2>
+    <div class="channels__grid">
+      {c.channels.map(ch => (
+        <div class={`channel-card ${ch.active ? 'channel-card--active' : ''}`}>
+          <span class="channel-card__icon">{ch.icon}</span>
+          <div class="channel-card__content">
+            <div class="channel-card__title-row">
+              <h3 class="channel-card__name">{ch.name}</h3>
+              {!ch.active && <span class="channel-card__badge">{c.badge}</span>}
+            </div>
+            <p class="channel-card__desc">{ch.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .channels {
+    padding-block: var(--section-padding-y);
+    border-block-start: 1px solid var(--border-subtle);
+  }
+
+  .channels__heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-snug);
+    margin-block-end: var(--space-7);
+  }
+
+  .channels__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+
+  .channel-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: border-color var(--duration-quick) var(--ease-smooth);
+  }
+
+  .channel-card:hover {
+    border-color: var(--border-strong);
+  }
+
+  .channel-card--active {
+    border-color: var(--border-accent);
+    background: var(--bg-warm-subtle);
+  }
+
+  .channel-card__icon {
+    font-size: var(--fs-h2);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .channel-card__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .channel-card__title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-block-end: var(--space-2);
+  }
+
+  .channel-card__name {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+  }
+
+  .channel-card__badge {
+    font-size: var(--fs-caption);
+    color: var(--text-warm);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-2);
+    letter-spacing: var(--ls-wide);
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .channel-card__desc {
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-base);
+    color: var(--text-secondary);
+  }
+</style>
